@@ -1,0 +1,191 @@
+.info-box {
+    color: #666666;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    position: relative;
+    margin-bottom: 24px;
+    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.25);
+}
+.btn-primary, .bg-aqua, .callout.callout-info, .alert-info, .label-info, .modal-info .modal-body {
+    background-color: #30a5ff !important;
+    border:none;
+}
+
+.bg-yellow, .callout.callout-warning, .alert-warning, .label-warning, .modal-warning .modal-body {
+    background-color: #ffb53e !important;
+    border:none;
+}
+.btn-success, .bg-green, .callout.callout-success, .alert-success, .label-success, .modal-success .modal-body {
+    background-color: #1ebfae !important;
+    border:none;
+}
+
+.btn-danger, .bg-red, .callout.callout-danger, .alert-danger, .alert-error, .label-danger, .modal-danger .modal-body {
+    background-color: #f9243f !important;
+    border:none;
+}
+
+span.info-box-icon {
+    border-radius: 5px 0px 0px 5px;
+}
+
+.info-box-number {
+    display: block;
+    font-weight: normal;
+    font-size: 18px;
+    color: #B5B1B1;
+    font-weight: 300;
+}
+
+.info-box-text {
+	color:#5f6468;
+    display: block;
+    font-size: 30px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+.pie-charts {
+    color: #666666;
+}
+
+.pie-charts .pie-chart-item-container {
+    position: relative;
+    padding: 0 15px;
+    float: left;
+    box-sizing: border-box;
+}
+.widget-item-container {
+    position: relative;
+    float: left;
+    box-sizing: border-box;
+}
+.fixed-height{
+  height: 192px;
+}
+.pie-charts .pie-chart-item-container .panel {
+    height: 114px;
+}
+
+@media screen and (min-width: 1325px) {
+    .pie-charts .pie-chart-item-container {
+        width: 25%;
+    }
+    .widget-item-container {
+        width: 50%;
+    }
+    .table-container {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 700px) and (max-width: 1325px) {
+    .pie-charts .pie-chart-item-container {
+        width: 50%;
+    }
+    .widget-item-container {
+        width: 50%;
+    }
+    .table-container {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .pie-charts .pie-chart-item-container {
+        width: 100%;
+    }
+    .widget-item-container {
+        width: 100%;
+        padding: 0;
+    }
+}
+
+.pie-charts .pie-chart-item {
+    position: relative;
+}
+
+.pie-charts .pie-chart-item .chart-icon {
+    position: absolute;
+    right: 0px;
+    top: 3px;
+    z-index: -1;
+}
+
+@media screen and (min-width: 1325px) and (max-width: 1650px), (min-width: 700px) and (max-width: 830px), (max-width: 400px) {
+    .pie-charts .chart-icon {
+        display: none;
+    }
+}
+
+.pie-charts .chart {
+    position: relative;
+    display: inline-block;
+    width: 84px;
+    height: 84px;
+    text-align: center;
+    float: left;
+}
+
+.pie-charts .chart canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.pie-charts .percent {
+    display: inline-block;
+    line-height: 84px;
+    z-index: 2;
+    font-size: 16px;
+}
+
+.pie-charts .percent:after {
+    content: '%';
+    margin-left: 0.1em;
+    font-size: .8em;
+}
+
+.pie-charts .description {
+    display: inline-block;
+    padding: 20px 0 0 20px;
+    font-size: 18px;
+    opacity: 0.9;
+}
+
+.pie-charts .description .description-stats {
+    padding-top: 8px;
+    font-size: 24px;
+}
+
+.pie-charts .angular {
+    margin-top: 100px;
+}
+
+.pie-charts .angular .chart {
+    margin-top: 0;
+}
+
+.pie-charts .pie-chart-item .chart-icon {
+    position: absolute;
+    right: 0px;
+    top: 3px;
+    z-index: -1;
+}
+
+.i-person {
+    display: inline-block;
+    background: url("http://owl-admin.nightowls.xyz/src/assets/img/person.svg") no-repeat center;
+    background-size: contain;
+    vertical-align: middle;
+    width: 80px;
+    height: 80px;
+}
+
+audio, canvas, progress, video {
+    display: inline-block;
+    vertical-align: baseline;
+}

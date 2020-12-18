@@ -1,0 +1,1 @@
+[05-Feb-2020 18:18:48 UTC] PHP Parse error:  syntax error, unexpected '?', expecting variable (T_VARIABLE) in /home/indigita/test.perfectweddingday.ca/vendor/zendframework/zend-diactoros/src/functions/marshal_uri_from_sapi.php on line 83

@@ -1,0 +1,75 @@
+/*
+* Adding Ajax Loading Functionality
+*
+*/
+
+.loader {
+  border: 5px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 5px solid #3498db;
+  width: 50px;
+  height: 50px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+#loading {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 999999;
+    background: rgba(12, 11, 11, 0.75);
+}
+#loaderImg {
+    margin: auto;
+    display: block;
+    margin-top: 240px;
+}
+
+.inner-slider .carousel-inner>.custom-height {
+    min-height: 200px !important;
+}
+
+.custom-error{
+    float: left;
+    font-size: 13px;
+    color: red;
+    padding: 0px 5px;
+    text-align:left;
+}
+
+.reg-error{
+  float: left;
+  margin-top: -15px;
+  margin-left: -15px;
+}
+.reg-error-1{
+    margin-top: -15px;
+    margin-left: 15px;
+}
+
+.cus-login-msg{
+  font-size: 13px;
+  margin-top: 10px;
+}
+
+.cus-login-form .form-control {
+    border: none;
+    border-bottom: 1px solid #e8e8e8;
+    height: 40px;
+    font-size: 13px;
+    padding-top: 10px;
+}

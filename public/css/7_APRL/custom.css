@@ -1,0 +1,165 @@
+/*
+* Adding Ajax Loading Functionality
+*
+*/
+
+.loader {
+  border: 5px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 5px solid #00AEAF;
+  width: 50px;
+  height: 50px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+#loading {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 999999;
+    background: rgba(12, 11, 11, 0.75);
+}
+#loaderImg {
+    margin: auto;
+    display: block;
+    /*margin-top: 240px;*/
+}
+
+.inner-slider .carousel-inner>.custom-height {
+    min-height: 200px !important;
+}
+
+.custom-error{
+    float: left;
+    font-size: 13px;
+    color: red;
+    padding: 0px 5px;
+    text-align:left;
+}
+
+.reg-error{
+  float: left;
+  margin-top: -15px;
+  margin-left: -15px;
+}
+.reg-error-1{
+    margin-top: -15px;
+    margin-left: 15px;
+}
+
+.cus-login-msg{
+  font-size: 13px;
+  margin-top: 10px;
+}
+
+.cus-login-form .form-control {
+    border: none;
+    border-bottom: 1px solid #e8e8e8;
+    height: 40px;
+    font-size: 13px;
+    padding-top: 10px;
+}
+
+.cropit-preview {
+  width:390px;
+  height:422px;
+}
+
+.cropit-preview-image-container img {
+  max-width: none;
+}
+
+.cropit-preview-background {
+  opacity: 0;
+  cursor: auto;
+}
+
+
+.dash-cover-info{
+height: 20% !important;
+}
+
+.image-crop-cancel{
+    margin-left: 25%;
+}
+
+
+.avatar-new{
+    width: 45px;
+    height: 45px;
+    border-radius:50%;
+}
+
+
+#image-cropper .cropit-preview,
+#ballot-image-cropper .cropit-preview {
+  width: 260px;
+  height: 260px;
+  margin: 0 auto;
+}
+#image-cropper .ballot-cropit-preview,
+#ballot-image-cropper .ballot-cropit-preview {
+  width: 400px;
+  height: 160px;
+  margin: 0 auto;
+}
+
+.qc_heart i {
+    color: #f8484a;
+    position: relative;
+    right: 0;
+    top: 0;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.custom-color{
+  color:#6A6C72 !important;
+}
+
+.datepicker th.next, .datepicker th.prev{
+   padding:5px 0 0 5px;
+   font-size:14px;
+}
+
+.datepicker{
+    border-radius:3px;
+    box-shadow:0 0 5px 0 rgba(0,0,0,.5);
+    background-color:#fff;
+    position:absolute;
+    top:0;
+    left:0;
+    margin-top:1px;
+    width:240px;
+    z-index:9999
+}
+ .search-active{
+      background: #FBF4F0 !important;
+     font-weight: bold !important;
+     color:#666;
+ }
+
+ .no-match{
+      padding: 15px 52px;
+    color: red;
+ }
+
+ .alert-danger {
+    color: #ffffff;
+    background-color: #F6504E !important;
+    border-color: #ebccd1;
+}

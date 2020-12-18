@@ -1,0 +1,502 @@
+@extends('layouts.default')
+@section('meta_title',$pageData->meta_title)
+@section('meta_keyword',$pageData->meta_keyword)
+@section('meta_description',$pageData->meta_description)
+@section('content')
+@include('includes.menu')
+<!-- <div class="breadcrumb-box">
+   <div class="wrapper">
+      <div class="breadcrumb-container">
+         <div id="app-vendors-directory-breadcrumb">
+            <ul class="breadcrumb">
+               <li><a href="https://www.weddingwire.ca/">Weddings</a></li>
+               <li><a href="https://www.weddingwire.ca/wedding-venues">Wedding Venues</a></li>
+            </ul>
+         </div>
+         <div class="app-prefered-suppliers app-prefered-supplier-logout breadcrumb-dress-fav">
+            <div id="app-proveedores-favoritos" class="breadcrumb-saved">
+               <i class="svgIcon svgIcon__heartOutline app-proveedores-heart-empty">
+               <svg viewBox="0 0 32 32"><use xlink:href="#svg-_common-heartOutline"></use></svg></i>
+               <i class="svgIcon svgIcon__heart app-proveedores-heart-saved dnone">
+               <svg viewBox="0 0 32 32"><use xlink:href="#svg-_common-heart"></use></svg></i>
+               <p>Saved</p><span class="app-vendors-num-saved">0</span>
+            </div>
+         </div>
+      </div>
+   </div>
+</div> -->
+<style>
+.qc_heart.right_corner {
+   float: right;
+   margin: 8px 8px 0px 0px;
+}
+.directory-img-item__wrapper {
+   padding: 15px 10px;
+}
+.owl-theme .owl-controls{
+    display:none !important;
+}
+</style>
+@include('includes.inner-slider')
+<!-- ABOUT SECTION START-->
+<section id="about-section" class="section-padding">
+   <div class="container">
+      <div id="app-vendors-directory-navigation" class="directory-results-bar">
+         <div class="wrapper">
+            <div class="pure-g">
+               <div class="pure-u-4-6">
+                  <div class="directory-filtered">
+                     <span class="directory-results-bar-results">{{!empty($vendorLists)?$vendorLists->total():0}} results:</span>
+                     <ul class="directory-search-tags">
+                         @if(!empty($pageData['search_category']))
+                        <li class="app-directory-filters-change tag-box">
+                           <span>{{$pageData['search_category']}}</span>
+                           <i class="fa fa-close search-main-category-close" style="color: #ddd;"></i>
+                           <!-- <i class="svgIcon svgIcon__close tag-box-close">
+                              <svg viewBox="0 0 32 32" width="16" height="16">
+                                 <use xlink:href="#svg-_common-close">
+                                    <svg id="svg-_common-close" viewBox="0 0 26 26">
+                                       <path d="M12.983 10.862L23.405.439l2.122 2.122-10.423 10.422 10.423 10.422-2.122 2.122-10.422-10.423L2.561 25.527.439 23.405l10.423-10.422L.439 2.561 2.561.439l10.422 10.423z" fill-rule="nonzero"></path>
+                                    </svg>
+                                 </use>
+                              </svg>
+                           </i> -->
+                        </li>
+                        @endif
+                        @if($pageData->search_province)
+                           <li class="app-directory-filters-change tag-box">
+                              <span>{{$pageData->search_province}}</span>
+                              <i class="fa fa-close province_close" style="color: #ddd;"></i>
+                              <!-- <i class="svgIcon svgIcon__close tag-box-close province_close">
+                                 <svg viewBox="0 0 32 32" width="16" height="16">
+                                    <use xlink:href="#svg-_common-close">
+                                       <svg id="svg-_common-close" viewBox="0 0 26 26">
+                                          <path d="M12.983 10.862L23.405.439l2.122 2.122-10.423 10.422 10.423 10.422-2.122 2.122-10.422-10.423L2.561 25.527.439 23.405l10.423-10.422L.439 2.561 2.561.439l10.422 10.423z" fill-rule="nonzero"></path>
+                                       </svg>
+                                    </use>
+                                 </svg>
+                              </i> -->
+                           </li>
+                        @endif
+                        @if($pageData->search_region)
+                           <li class="app-directory-filters-change tag-box">
+                              <span>{{$pageData->search_region}}</span>
+                              <i class="svgIcon svgIcon__close tag-box-close region_close">
+                                 <svg viewBox="0 0 32 32" width="16" height="16">
+                                    <use xlink:href="#svg-_common-close">
+                                       <svg id="svg-_common-close" viewBox="0 0 26 26">
+                                          <path d="M12.983 10.862L23.405.439l2.122 2.122-10.423 10.422 10.423 10.422-2.122 2.122-10.422-10.423L2.561 25.527.439 23.405l10.423-10.422L.439 2.561 2.561.439l10.422 10.423z" fill-rule="nonzero"></path>
+                                       </svg>
+                                    </use>
+                                 </svg>
+                              </i>
+                           </li>
+                        @endif
+                        <li class="app-directory-filters-change" data-filters-maintain="none">
+                           <span class="tag-box-clear">Clear all</span>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+               <div class="pure-u-2-6 text-right">
+                  <div id="vendors-list-view">
+                     <ul class="directory-view-mode">
+                        <li class="app-directory-filters-change-mode list_tab">
+                           <span class="directory-list-mode active" title="Show list on map">
+                              <i class="svgIcon svgIcon__list vendors-list-view-icon">
+                                 <svg viewBox="0 0 32 18">
+                                    <path d="M.985 2V0h30.032v2H.985zm0 8V8h30.032v2H.985zm0 8v-2H25.02v2H.985z" fill-rule="nonzero"></path>
+                                 </svg>
+                              </i> List
+                           </span>
+                        </li>
+                        <li class="app-directory-filters-change-mode image_tab hidden-xs hidden-md">
+                           <span class="directory-imagetag-filters-mode " title="Show grid with photo">
+                              <i class="svgIcon svgIcon__squares vendors-list-view-icon">
+                                 <svg viewBox="0 0 32 32">
+                                    <path d="M2 20v10h10V20H2zm12-2v14H0V18h14zm6-16v10h10V2H20zm12-2v14H18V0h14zM2 2v10h10V2H2zm12-2v14H0V0h14zm6 20v10h10V20H20zm12-2v14H18V18h14z" fill-rule="nonzero"></path>
+                                 </svg>
+                              </i> Images
+                           </span>
+                        </li>
+                        <!-- <li class="app-directory-filters-change-mode" data-showmode="map">
+                           <span class="directory-map-mode " title="Show map">
+                              <i class="svgIcon svgIcon__mapMarkerOutline vendors-list-view-icon">
+                                 <svg viewBox="0 0 28 36">
+                                    <path d="M18.087 14.033c0-2.264-1.83-4.1-4.087-4.1a4.094 4.094 0 0 0-4.087 4.1c0 2.265 1.83 4.1 4.087 4.1a4.094 4.094 0 0 0 4.087-4.1zm2 0c0 3.368-2.725 6.1-6.087 6.1-3.362 0-6.087-2.732-6.087-6.1 0-3.368 2.725-6.1 6.087-6.1 3.362 0 6.087 2.732 6.087 6.1zM15.282 32.09a40.603 40.603 0 0 0 4.171-4.25c3.748-4.441 5.982-9.124 5.982-13.806 0-6.228-5.312-11.466-11.435-11.466S2.565 7.805 2.565 14.033c0 4.682 2.234 9.365 5.982 13.805A40.603 40.603 0 0 0 14 33.168c.39-.311.82-.672 1.282-1.079zm12.153-18.056c0 5.235-2.43 10.327-6.453 15.095a42.584 42.584 0 0 1-5.826 5.677c-.266.211-.459.358-.567.436l-.589.43-.59-.43a18.925 18.925 0 0 1-.566-.436 42.584 42.584 0 0 1-5.825-5.676C2.993 24.36.564 19.268.564 14.032.565 6.695 6.78.567 14 .567s13.435 6.128 13.435 13.466z" fill-rule="nonzero"></path>
+                                 </svg>
+                              </i> Map
+                           </span>
+                        </li> -->
+                     </ul>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      @include('includes.sidebar')
+      <!-- ========================================= CONTENT ========================================= -->
+      <div class="col-xs-12 col-sm-9 no-margin wide sidebar">
+         <section id="gaming">
+            <div class="grid-list-products">
+               <!-- <div class="control-bar">
+                  if(isset($vendorLists) && !empty($vendorLists))
+                     <div id="popularity-sort" class="le-select">
+                        Your search: <span class="le-select-in">$vendorLists->total() vendors </span>
+                     </div>
+                     <div class="grid-list-buttons">
+                        <ul>
+                           <li> Showings $vendorLists->currentPage() - $vendorLists->lastPage() of $vendorLists->total() results</li>
+                        </ul>
+                     </div>
+                  else
+                     <div id="popularity-sort" class="le-select">
+                        Your search: <span class="le-select-in">0 vendors </span>
+                     </div>
+                     <div class="grid-list-buttons">
+                        <ul><li> Showings 0 of 0 results</li></ul>
+                     </div>
+                  endif
+               </div> --><!-- /.control-bar -->
+               <div class="tab-content">
+                  <div id="list-view" class="products-grid fade tab-pane  active in">
+                     <div class="products-list">
+                        @if(isset($vendorLists) && !empty($vendorLists))
+                           <?php $catImages = 0; $catDesc = -1; ?>
+                           @foreach($vendorLists as $list)
+                              <div class="product-item product-item-holder">
+                                 <div class="row">
+                                    <div class="no-margin col-xs-12 col-sm-12 col-md-5 image-holder">
+                                       <div class="vandor-gallery">
+                                           @if(!empty($list->profile))
+                                              <img class="filter-search-image img-responsive" src="{{asset('public/vendors/VENDOR_'.$list->vendor_id.'/'.$list->profile)}}">
+                                          @elseif(isset($list->image_data) && !empty($list->image_data) && (count($list->image_data) > 0))
+                                             @foreach($list->image_data as $img)
+                                                <div class="image-gallery">
+                                                   <!--@if($list->freelisting == 'No')
+                                                      <div class="ribbon red"><span>Featured</span></div>
+                                                   @endif-->
+                                                   <div class="image" style="text-align: center;">
+                                                      <!--@if(isset($list['question_data']['min_number_guest']) && isset($list['question_data']['max_number_guest']) && !empty($list['question_data']['min_number_guest']))
+                                                         <div class="listing-caption">
+                                                            <span class="listing-caption-count">Guests<br>
+                                                               <strong>{{$list['question_data']['min_number_guest']}} to {{$list['question_data']['max_number_guest']}}</strong>
+                                                            </span>
+                                                         </div>
+                                                      @endif-->
+                                                      @if(file_exists(public_path().'/vendors/'.$img['vendor_folder'].'/'.$img['image']))
+                                                         <img class="filter-search-image img-responsive" src="{{asset('public/cimg/webroot/img.php?src=vendors/'.$img['vendor_folder'].'/'.$img['image'])}}">
+                                                         <!-- <img style="width:300px;height:189px;" src="{{asset('public/cimg/webroot/img.php?src=vendors/'.$img['vendor_folder'].'/'.$img['image'])}}"> -->
+                                                        @php //break; @endphp
+                                                      @else
+                                                         <img class="filter-search-image img-responsive" src="{{asset('public/cimg/webroot/img.php?src=vendors/no-photo.jpg')}}">
+                                                      @endif
+                                                   </div>
+                                                </div>
+                                             @endforeach
+                                          @else
+                                             <div class="image-gallery">
+                                                <!--@if($list->freelisting == 'No')
+                                                   <div class="ribbon red"><span>Featured</span></div>
+                                                @endif-->
+                                                <div class="image" style="text-align: center;">
+                                                   <?php /* @if(isset($list['question_data']['min_number_guest']) && isset($list['question_data']['max_number_guest']) && !empty($list['question_data']['min_number_guest']))
+                                                      <!--<div class="listing-caption">
+                                                         <span class="listing-caption-count">Guests<br>
+                                                            <strong>{{$list['question_data']['min_number_guest']}} to {{$list['question_data']['max_number_guest']}}</strong>
+                                                         </span>
+                                                      </div>-->
+                                                   @endif
+                                                   @if(count($list['category_images']) > 0)
+                                                      @foreach($list['category_images'] as $num => $cti)
+                                                         <!--if($num == $catImages)-->
+                                                         @if($num < 1)
+                                                            <img src="{{asset('public/cimg/webroot/img.php?src=images/category_images/'.$cti->images)}}" class="filter-search-image img-responsive">
+                                                            <?php /*$catImages++;
+                                                               if($catImages == 5) { $catImages = 0; }
+                                                               $catDesc++;
+                                                               if($catDesc == 5) { $catDesc = 0; }
+                                                               break;*/
+                                                               /*
+                                                            ?>
+                                                            @php break; @endphp
+                                                         @endif
+                                                         @php //break; @endphp
+                                                      @endforeach
+                                                   @else
+                                                      
+                                                   @endif */ ?>
+                                                   <img class="filter-search-image img-responsive" src="{{asset('public/cimg/webroot/img.php?src=vendors/no-profile.jpg')}}"> 
+                                                </div>
+                                             </div><!-- Image Gallery -->
+                                          @endif
+                                       </div><!-- Vandor Gallery -->
+                                    </div><!-- /.image-holder -->
+                                    <div class="no-margin col-xs-12 col-md-7 col-sm-12 body-holder">
+                                       <div class="body">
+                                          <div class="product-head">
+                                             <div class="title">
+                                                <a href="{{url('vendor')}}/{{$list['company_data']['business_name_slug']}}">{{$list['business_name']}}</a>
+                                             </div>
+                                             <div class="brand">
+                                                @if($list->freelisting == 'No')
+                                                   <!--<div class="star-holder inline product-stars">
+                                                      @if(isset($list['rating_data']) && !empty($list['rating_data']))
+                                                         @php
+                                                            $cont = 0;
+                                                            $finalAvg = 0;
+                                                            if($list->rating_data_count >= 1){
+                                                               foreach($list['rating_data'] as $avgr){
+                                                                  $cont += $avgr->average_rating;
+                                                               }
+                                                               $finalAvg = ($cont/$list->rating_data_count);
+                                                            }
+                                                         @endphp
+                                                         <div class="readOnly" data-score="{{$finalAvg}}">
+                                                             <span style="float: right;">&nbsp;&nbsp;{{$list->rating_data_count}} </span> 
+                                                         </div>
+                                                      @endif
+                                                   </div>-->
+                                                   <div class="inline product-head-content"> {{$list['company_data']['city']}} ({{$list['company_data']['province']}})</div>
+                                                @else
+                                                   <div class="inline product-head-content"> {{$list['company_data']['address'].', '.$list['company_data']['province'].' - '.$list['company_data']['postal_code']}}</div>
+                                                @endif
+                                             </div>
+                                          </div>
+                                          <div class="pull-right">
+                                             <!-- <div class="star-holder inline">
+                                                @if(isset($list['rating_data']) && !empty($list['rating_data']))
+                                                   @php
+                                                      $cont = 0;
+                                                      $finalAvg = 0;
+                                                      if($list->rating_data_count >= 1){
+                                                         foreach($list['rating_data'] as $avgr){
+                                                            $cont += $avgr->average_rating;
+                                                         }
+                                                         $finalAvg = ($cont/$list->rating_data_count);
+                                                      }
+                                                   @endphp
+                                                   <div class="readOnly" data-score="{{$finalAvg}}">
+                                                      <span style="float: right;">&nbsp; ({{$list->rating_data_count}})</span>
+                                                   </div>
+                                                @endif
+                                             </div> -->
+                                             @if($list->freelisting == 'No')
+                                                <div class="qc_heart">
+                                                   @php
+                                                      $randId = rand();
+                                                      $hide1 = $hide2 = 'display:none;';
+                                                      if(in_array($list['company_data']['id'],$wishLists)):
+                                                         $hide1 = '';
+                                                      else:
+                                                         $hide2 = '';
+                                                      endif;
+                                                   @endphp
+                                                   <!--<i onclick="Frontend.removeWishList({{$list['company_data']['id']}},{{$randId}})" id="remove_{{$randId}}" style="{{$hide1}}" class="fa fa-heart"></i>
+                                                   <i onclick="Frontend.checkLogin({{$list['company_data']['id']}},{{$randId}})" id="add_{{$randId}}" style="{{$hide2}}"  class="fa fa-heart-o"></i>-->
+                                                </div>
+                                             @endif
+                                          </div>
+                                          <div class="clear"></div>
+                                          <div class="excerpt">
+                                             <?php /* @if(@$list['company_data']['business_detail'])
+                                                <p>{!!strip_tags(substr($list['company_data']['business_detail'],0,200))!!}...(<a href="{{url($list['category_data']['parent_slug'].'/'.$list['category_data']['slug'])}}/{{$list['company_data']['business_name_slug']}}">read more</a>)</p>
+                                             @else */ ?>
+                                                <!--foreach($list->category_images as $num => $cti)-->
+                                                   <!-- if($num == $catDesc) -->
+                                                      <p>{!!strlen(@$list->business_description) <= 200 ? strip_tags(@$list->business_description) : strip_tags(substr(@$list->business_description,0,200)).'...'!!}&nbsp;&nbsp;&nbsp;(<a href="{{url('vendor')}}/{{$list['company_data']['business_name_slug']}}">read more</a>)</p>
+                                                   <!-- endif -->
+                                                   <!--php break; endphp-->
+                                                <!--endforeach-->
+                                             <?php /* @endif */ ?>
+                                          </div>
+                                          <div class="addto-compare">
+                                              @if($list['rating_data_count'] >= 25 && $list['rating_data_count'] < 50)
+                                            <div class="award award--center award--large award--rounded award--silver award--grey" style="height: 75px;">
+                    	                    </div>
+                    	                    @endif
+                    	                    @if($list['rating_data_count'] >= 50 && $list['rating_data_count'] < 100)
+                                            <div class="award award--center award--large award--rounded award--gold award--grey" style="height: 75px;">
+                    	                    </div>
+                    	                    @endif
+                    	                    @if($list['rating_data_count'] >= 100)
+                                            <div class="award award--center award--large award--rounded award--platinum award--grey" style="height: 75px;">
+                    	                    </div>
+                    	                    @endif
+                                             <a class="readmore-btn pull-right" onclick="Frontend.setRequestForm({{$list['company_data']['id']}})" href="#" data-toggle="modal" data-target="#myModal">Request Pricing</a>
+                                          </div>
+                                       </div>
+                                    </div><!-- /.body-holder --><!-- /.price-area -->
+                                 </div><!-- /.row -->
+                              </div><!-- /.product-item -->
+                           @endforeach
+                        @else
+                           <p class="text-center">No Record Found</p>
+                        @endif
+                     </div><!-- /.products-list -->
+                     <div class="directory-list-images pure-g-r row image_view" style="display:none;">
+                        @if(isset($vendorLists) && !empty($vendorLists))
+                           <?php $catImages2 = 0; $catDesc2 = -1; ?>
+                           @foreach($vendorLists as $list)
+                              <div class="pure-u-1-3 app-ec-item app-vendors-item app-vpromo appVendorGalleryMedium_46 gtm-snowplow-tracking-impression">
+                                 <div class="directory-img-item directory-img-item--box">
+                                    <div class="vendor-slider">
+                                       <div class="app-vendors-sliderMedium"></div>
+                                       <div class="vendor-slider-content img-zoom">
+                                          @if(!empty($list->profile))
+                                              <img class="filter-search-image img-responsive" src="{{asset('public/vendors/VENDOR_'.$list->vendor_id.'/'.$list->profile)}}">
+                                          @elseif(isset($list->image_data) && !empty($list->image_data) && (count($list->image_data) > 0))
+                                             @foreach($list->image_data as $img)
+                                                @if(file_exists( public_path().'/vendors/'.$img['vendor_folder'].'/'.$img['image']))
+                                                   <img class="filter-search-image img-responsive" src="{{asset('public/vendors/'.$img['vendor_folder'].'/'.$img['image'])}}">
+                                                    @php //break; @endphp
+                                                @else
+                                                   <img class="filter-search-image img-responsive" src="{{asset('public/vendors/no-profile.jpg')}}">
+                                                @endif
+                                             @endforeach
+                                          @else
+                                             <?php /*@if(count($list->category_images))
+                                                @foreach($list->category_images as $num => $cti)
+                                                   @if($num == $catImages2)
+                                                      <img src="{{asset('public/images/category_images/'.$cti->images)}}" class="filter-search-image img-responsive">
+                                                      <?php $catImages2++;
+                                                         if($catImages2 == 5) { $catImages2 = 0; }
+                                                         $catDesc2++;
+                                                         if($catDesc2 == 5) { $catDesc2 = 0; }
+                                                         break;
+                                                      ?>
+                                                   @endif
+                                                   @php //break; @endphp
+                                                @endforeach
+                                             @else
+                                                
+                                             @endif */ ?>
+                                             <img src="{{asset('public/vendors/no-profile.jpg')}}" class="filter-search-image img-responsive">
+                                          @endif
+                                       </div>
+                                       @if($list->freelisting == 'No')
+                                          <!--<div class="btn-fav no-hover">
+                                             <div class="qc_heart right_corner">
+                                                @php
+                                                   $randId = rand();
+                                                   $hide1 = $hide2 = 'display:none;';
+                                                   if(in_array($list['company_data']['id'],$wishLists)):
+                                                      $hide1 = '';
+                                                   else:
+                                                      $hide2 = '';
+                                                   endif;
+                                                @endphp
+                                                <i onclick="Frontend.removeWishList({{$list['company_data']['id']}},{{$randId}})" id="remove_{{$randId}}" style="{{$hide1}}" class="fa fa-heart"></i>
+                                                <i onclick="Frontend.checkLogin({{$list['company_data']['id']}},{{$randId}})" id="add_{{$randId}}" style="{{$hide2}}"  class="fa fa-heart-o"></i>
+                                             </div>
+                                          </div>-->
+                                       @endif
+                                    </div>
+                                    <div class="directory-img-item__wrapper">
+                                       <div class="directory-img-item__content">
+                                          <div class="directory-img-item-top">
+                                             <a class="directory-img-item-name app_lnkEsc_2407" href="{{url('vendor')}}/{{$list['business_name_slug']}}">{{$list['business_name']}}</a>
+                                             <div class="directory-img-item-location">
+                                                @if($list->freelisting == 'No')
+                                                   <!--<div class="star-holder inline">
+                                                      @if(isset($list['rating_data']) && !empty($list['rating_data']))
+                                                         @php
+                                                            $cont = 0;
+                                                            $finalAvg = 0;
+                                                            if($list->rating_data_count >= 1){
+                                                               foreach($list['rating_data'] as $avgr){
+                                                                  $cont += $avgr->average_rating;
+                                                               }
+                                                               $finalAvg = ($cont/$list->rating_data_count);
+                                                            }
+                                                         @endphp
+                                                         <div class="readOnly" data-score="{{$finalAvg}}">
+                                                            <span style="float: right;">&nbsp; {{$list->rating_data_count}}</span>
+                                                         </div>
+                                                      @endif
+                                                   </div>
+                                                   <span><br/>  $list['category_data']['title'] ,  {{$list['company_data']['province']}}</span>-->
+                                                @else
+                                                   <span>{{isset($list['category_data']['title'])?$list['category_data']['title'].',':''}}<br/> {{$list['company_data']['address'].', '.$list['company_data']['province'].' - '.$list['company_data']['postal_code']}}</span>
+                                                @endif
+                                             </div>
+                                          </div>
+                                          <div class="excerpt">
+                                                {!!strip_tags(substr($list['business_description'],0,100),'<br>')!!}...(<a href="{{url('vendor')}}/{{$list['company_data']['business_name_slug']}}">read more</a>)
+                                          </div>
+                                       </div>
+                                       <div class="app-vendors-item-solicitar listItem__button">
+                                          <a class="btnFlat btnFlat--primary btnFlat--full app-ua-track-event" onclick="Frontend.setRequestForm({{$list['company_data']['id']}})" href="#" data-toggle="modal" data-target="#myModal">Request pricing</a>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           @endforeach
+                        @endif
+                     </div><!-- product-image  -->
+                     <!-- Modal -->
+                     @include('includes.login_popup')
+                     @include('includes.request_popup')
+                     @if(!empty($vendorLists) && $vendorLists->total() > 10)
+                     <div class="pagination-holder">
+                        <div class="row">
+                           @if(isset($vendorLists) && !empty($vendorLists))
+                              <div class="col-xs-12 col-sm-9 text-left">
+                                 {{ $vendorLists->links() }}
+                                 <!--  <ul class="pagination">
+                                    <li class="current"><a href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><a href="#">4</a></li>
+                                    <li><a href="#">next</a></li>
+                                 </ul> -->
+                              </div>
+                              <div class="col-xs-12 col-sm-3">
+                                 <div class="result-counter">
+                                    Showing <span>{{ $vendorLists->currentPage() }}-{{ $vendorLists->lastPage() }}</span> of <span>{{ $vendorLists->total() }}</span> results
+                                 </div><!-- /.result-counter -->
+                              </div>
+                           @endif
+                        </div><!-- /.row -->
+                     </div><!-- /.pagination-holder -->
+                     @endif
+                  </div><!-- /.products-grid #list-view -->
+               </div><!-- /.tab-content -->
+            </div><!-- /.grid-list-products -->
+         </section><!-- /#gaming -->
+      </div><!-- /.col -->
+      <!-- ========================================= CONTENT : END ========================================= -->
+   </div>
+</section>
+<?php /* @include('includes.hot-deal') */ ?>
+<!-- / END SUBSCRIBE SECTION-->
+@include('includes.footer')
+<script>
+$(document).ready(function() {
+   $('body').on('click', '.tag-box-clear', function() {
+      window.location.href = "{{url('search')}}";
+   });
+   $('body').on('click', '.province_close', function() {
+      window.location.href = "{{url('search'.(isset($_GET['category'])?'?category='.$_GET['category']:''))}}";
+   });
+   $('body').on('click', '.search-main-category-close', function() {
+      window.location.href = "{{url('search'.(isset($_GET['location'])?'?location='.$_GET['location']:('')))}}";
+   });
+   $('body').on('click', '.region_close', function() {
+      window.location.href = "{{url('search'.(isset($_GET['category'])?'?category='.$_GET['category']:''))}}";
+   });
+   $('body').on('click', '.list_tab', function() {
+      $('.image_view').hide();
+      $('.products-list').show();
+      $('.directory-list-mode').addClass('active');
+      $('.directory-imagetag-filters-mode').removeClass('active');
+   });
+   $('body').on('click', '.image_tab', function() {
+      $('.image_view').show();
+      $('.products-list').hide();
+      $('.directory-list-mode').removeClass('active');
+      $('.directory-imagetag-filters-mode').addClass('active');
+   });
+});
+</script>
+@endsection

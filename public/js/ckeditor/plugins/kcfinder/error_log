@@ -1,0 +1,1 @@
+[10-Dec-2019 07:15:19 UTC] PHP Fatal error:  Namespace declaration statement has to be the very first statement or after any declare call in the script in /home/indigita/test.perfectweddingday.ca/public/js/ckeditor/plugins/kcfinder/js_localize.php on line 15

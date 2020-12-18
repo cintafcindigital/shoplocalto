@@ -1,0 +1,67 @@
+<html>
+<body>
+<table width="100%" cellpadding="0" cellspacing="0" style="font-family:Avenir,Helvetica,sans-serif;box-sizing:border-box;background-color:#f5f8fa;margin:0;padding:0;width:100%">
+   <tbody>
+      <tr>
+         <td align="center" style="font-family:Avenir,Helvetica,sans-serif;box-sizing:border-box">
+            <table width="100%" cellpadding="0" cellspacing="0" style="font-family:Avenir,Helvetica,sans-serif;box-sizing:border-box;margin:0;padding:0;width:100%">
+               <tbody>
+                  <tr>
+                     <td style="font-family:Avenir,Helvetica,sans-serif;box-sizing:border-box;padding:25px 0;text-align:center">
+                        <a href="#">
+                         <img src="{{ asset('public/images/logo.png') }}" width="50%;" alt="My Health Squad Logo" style="width: 50%;">
+                        </a>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td width="100%" cellpadding="0" cellspacing="0" style="font-family:Avenir,Helvetica,sans-serif;box-sizing:border-box;background-color:#ffffff;border-bottom:1px solid #edeff2;border-top:1px solid #edeff2;margin:0;padding:0;width:100%">
+                        <table align="center" width="570" cellpadding="0" cellspacing="0" style="font-family:Avenir,Helvetica,sans-serif;box-sizing:border-box;background-color:#ffffff;margin:0 auto;padding:0;width:570px">
+                           <tbody>
+                              <tr>
+                                 <td style="font-family:Avenir,Helvetica,sans-serif;box-sizing:border-box;padding:35px">
+                                    <span class="im">
+                                       <h1 style="font-family:Avenir,Helvetica,sans-serif;box-sizing:border-box;color:#2f3133;font-size:19px;font-weight:bold;margin-top:0;text-align:left">Hi {{isset($name)?$name:''}},</h1>
+                                       <p style="font-family:Avenir,Helvetica,sans-serif;box-sizing:border-box;color:#74787e;font-size:16px;line-height:1.5em;margin-top:0;text-align:left">We want to let you know that a new health professional colleague has been added to our Featured Health Professionals of the Week section. This colleague is now taking advantage of enhanced visibility on our platform - as you know, our main goal is to increase the visibility of health professionals like you to the marketplace.</p>
+                                       <p style="font-family:Avenir,Helvetica,sans-serif;box-sizing:border-box;color:#74787e;font-size:16px;line-height:1.5em;margin-top:0;text-align:left">This is a Premium service on our platform. Many clients still don’t know the differences between various alternative and complementary health services and repeat exposure can increase awareness and grow your brand and your business and give you a significant opportunity to make meaningful connections with potential new clients.</p>
+                                       <p style="font-family:Avenir,Helvetica,sans-serif;box-sizing:border-box;color:#74787e;font-size:16px;line-height:1.5em;margin-top:0;text-align:left">If you want to be featured in this section, please contact us for more details.</p>
+                                       <p style="font-family:Avenir,Helvetica,sans-serif;box-sizing:border-box;color:#74787e;font-size:16px;line-height:1.5em;margin-top:0;text-align:left">Live healthy &amp; prosper !</p>
+                                       <table align="center" width="100%" cellpadding="0" cellspacing="0" style="font-family:Avenir,Helvetica,sans-serif;box-sizing:border-box;padding:0;text-align:center;width:100%">
+                                          <tbody>
+                                             <tr>
+                                                <td align="center" style="font-family:Avenir,Helvetica,sans-serif;box-sizing:border-box">
+                                                </td>
+                                             </tr>
+                                          </tbody>
+                                       </table>
+                                       <p style="font-family:Avenir,Helvetica,sans-serif;box-sizing:border-box;color:#74787e;font-size:16px;line-height:1.5em;margin-top:0;text-align:left"></p>
+                                       <p style="font-family:Avenir,Helvetica,sans-serif;box-sizing:border-box;color:#74787e;font-size:14px;line-height:1.5em;margin-top:0;text-align:left">Sincerely,<br><span class="il">My</span> <span class="il">Health</span> Squad</p>
+                                       <p style="font-size: 12px;"><i>Unsubscribe from My Health Squad emails</i><a href="{{url('email-unsubscribe/'.(isset($toEmail)?$toEmail:''))}}" target="_blank" style="text-decoration: none;"> Click here</a></p>
+                                    </span>
+                                    
+                                 </td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td style="font-family:Avenir,Helvetica,sans-serif;box-sizing:border-box">
+                        <table align="center" width="570" cellpadding="0" cellspacing="0" style="font-family:Avenir,Helvetica,sans-serif;box-sizing:border-box;margin:0 auto;padding:0;text-align:center;width:570px">
+                           <tbody>
+                              <tr>
+                                 <td align="center" style="font-family:Avenir,Helvetica,sans-serif;box-sizing:border-box;padding:35px">
+                                    <p style="font-family:Avenir,Helvetica,sans-serif;box-sizing:border-box;line-height:1.5em;margin-top:0;color:#aeaeae;font-size:12px;text-align:center">&copy; {{date('Y')}} <span class="il">My </span> <span class="il">Health</span> Squad. All rights reserved.</p>
+                                 </td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </td>
+      </tr>
+   </tbody>
+</table>
+</body>
+</html>

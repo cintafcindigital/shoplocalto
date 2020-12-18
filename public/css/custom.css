@@ -1,0 +1,2218 @@
+/*
+* Adding Ajax Loading Functionality
+*
+*/
+
+.loader {
+  border: 5px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 5px solid #00AEAF;
+  width: 50px;
+  height: 50px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+#loading {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 999999;
+    background: rgba(12, 11, 11, 0.75);
+}
+#loaderImg {
+    margin: auto;
+    display: block;
+    /*margin-top: 240px;*/
+}
+
+.inner-slider .carousel-inner>.custom-height {
+    min-height: 200px !important;
+}
+
+.custom-error{
+    float: left;
+    font-size: 13px;
+    color: red;
+    padding: 0px 5px;
+    text-align:left;
+}
+.reg-error{
+  float: left;
+  margin-top: -15px;
+  margin-left: -15px;
+}
+.reg-error-1{
+    margin-top: -15px;
+    margin-left: 15px;
+}
+.cus-login-msg{
+  font-size: 13px;
+  margin-top: 10px;
+}
+.cus-login-form .form-control {
+    border: none;
+    border-bottom: 1px solid #e8e8e8;
+    height: 40px;
+    font-size: 13px;
+    padding-top: 10px;
+}
+.cropit-preview {
+  width:390px;
+  height:422px;
+}
+.cropit-preview-image-container img {
+  max-width: none;
+}
+.cropit-preview-background {
+  opacity: 0;
+  cursor: auto;
+}
+.dash-cover-info{
+    height: 20% !important;
+}
+.image-crop-cancel{
+    margin-left: 25%;
+}
+.avatar-new{
+    width: 45px;
+    height: 45px;
+    border-radius:50%;
+}
+#image-cropper .cropit-preview,
+#ballot-image-cropper .cropit-preview {
+  width: 260px;
+  height: 260px;
+  margin: 0 auto;
+}
+#image-cropper .ballot-cropit-preview,
+#ballot-image-cropper .ballot-cropit-preview {
+  width: 400px;
+  height: 160px;
+  margin: 0 auto;
+}
+
+.qc_heart i {
+    color: #f8484a;
+    position: relative;
+    right: 0;
+    top: 0;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.custom-color{
+  color:#6A6C72 !important;
+}
+
+.datepicker th.next, .datepicker th.prev{
+   padding:5px 0 0 5px;
+   font-size:14px;
+}
+
+.datepicker{
+    border-radius:3px;
+    box-shadow:0 0 5px 0 rgba(0,0,0,.5);
+    background-color:#fff;
+    position:absolute;
+    top:0;
+    left:0;
+    margin-top:1px;
+    width:240px;
+    z-index:9999
+}
+ .search-active{
+      background: #FBF4F0 !important;
+     font-weight: bold !important;
+     color:#666;
+ }
+
+ .no-match{
+    padding: 15px 52px;
+    color: red;
+}
+ .alert-danger {
+    color: #ffffff;
+    background-color: #F6504E !important;
+    border-color: #ebccd1;
+}
+.bootstrap-dialog.type-warning .modal-header {
+    background-color: #83021e !important;
+}
+.bootstrap-dialog-footer-buttons > .btn-default {
+   background: #83021e;
+   margin:0;
+}
+.wedshoots-image-upload{
+    margin-top: 25px;
+    width: 58%;
+}
+
+.icon-my-business:before {
+    background-position: 2px -715px;
+    height: 26px;
+    width: 31px;
+}
+.icon-my-enquiries:before {
+    background-position: -88px -551px;
+    height: 30px;
+    width: 32px;
+}
+.text-green{
+  color:green;
+}
+
+.text-red{
+  color:red;
+}
+
+.b-text-white{
+  background-color:white;
+}
+
+.checklist-tasks-item-description {
+    display: inline-block;
+    vertical-align: top;
+    width: 75%;
+}
+.image-webshoots{
+   padding: 10px;
+   background-color: #EFEFEF;
+   border-right: 3px solid #fff;
+}
+.trash-icon{
+  font-size: 18px;
+    cursor: pointer;
+}
+.guest-related-info{
+   margin:0;
+}
+.slider-background{
+  background: rgba(0,0,0,.35);
+}
+.adminAccessLogin__title {
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+.adminAccessHero__title h3{
+    color: #fff;
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 1.3em;
+    margin-bottom: 20px;
+    padding-top: 70px;
+}
+.adminAccessHero__title p{
+    color: #fff;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+.adminAccessLogin {
+    width: 350px;
+    padding: 40px 40px;
+    /*background: rgba(0,0,0,.4);*/
+    background: rgba(0, 0, 0, 0.65);
+    color: #fff;
+    margin: 0 auto;
+    position: relative;
+    text-align: center;
+    box-sizing: border-box;
+}
+.adminAccessLogin--right {
+    float: right;
+}
+.wrapper--blood {
+    padding: 0 15px;
+}
+.adminAccessLogin__inputContainer {
+    position: relative;
+}
+.adminAccessLogin__rememberPass {
+    font-weight: 300;
+    color: #dcdcdc;
+    display: block;
+    cursor: pointer;
+}
+.adminAccessLogin__submit {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin-bottom: 20px;
+    padding: 14px 13px;
+    color: #fff;
+    background: #5c5f66;
+    box-shadow: 0 2px 0 #43454a;
+    border: 0;
+    border-radius: 3px;
+    width: 100%;
+    box-sizing: border-box;
+    display: block;
+    text-align: center;
+    cursor: pointer;
+}
+.adminAccessLogin__input {
+    color: #444;
+    width: 100%;
+    border: 0;
+    padding: 15px 13px 15px 40px;
+    background: #fff;
+    display: block;
+    box-sizing: border-box;
+}
+.adminAccessLogin__input--user {
+    border-bottom: 1px solid #d9d9d9;
+    border-radius: 3px 3px 0 0;
+}
+.adminAccessLogin__inputContainer {
+    position: relative;
+}
+.adminAccessLogin__input--pass {
+    border-radius: 0 0 3px 3px;
+    margin-bottom: 35px;
+}
+.adminLandingCta {
+    background: #83021e;
+    font-size: 18px;
+    font-weight: 400;
+    padding: 10px 20px;
+    border-radius: 2px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+}
+.adminLandingCta:hover {
+    background: #83021e;
+    color: #fff;
+}
+.adminAccessLogin__inputIcon--user {
+    background-position: 50% 2px;
+}
+.adminAccessLogin__inputIcon {
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    background: url(https://cdn1.weddingwire.ca/assets/img/admin-emp/sprite_ui.svg) no-repeat scroll 0 0 transparent;
+    height: 25px;
+    width: 20px;
+    left: 10px;
+    top: 50%;
+    position: absolute;
+}
+.adminAccessLogin__inputIcon--pass {
+    background-position: 50% -51px;
+}
+.adminAccessLogin__error {
+        /*font-weight: 300;*/
+        font-weight: bold;
+    color: #E00C0C;
+    display: block;
+    cursor: pointer;
+    padding-bottom: 5px;
+}
+.input_top {
+    display: inline-block;
+    width: 48%;
+}
+.input_top input{
+  width: 100%;
+}
+textarea#message {
+   width:100%;
+}
+.adminHomeResume {
+    border: 1px solid #d9d9d9;
+    border-radius: 3px;
+    background: #fff;
+    padding: 25px;
+    margin: 0 0 30px;
+}
+.adminHomeResume__item {
+    padding: 10px;
+    text-align: center;
+}
+.adminHomeResume__description strong {
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 5px;
+    color: #333;
+    display: block;
+}
+.adminEmpty__icon--solic {
+    background-position: 50% -1020px !important;
+    background-size: 225px !important;
+    height: 109px;
+}
+.adminEmpty__icon--setting {  
+    background-position: 50% -1148px !important;
+    background-size: 225px !important;
+    height: 109px;
+}
+.btn-flat.premium {
+    background-color: #faa14b;
+}
+.btn-flat {
+    font-size: 14px;
+    line-height: 22.65247586px;
+    padding: 8px 15px;
+    border-radius: 3px;
+    color: #fff;
+    display: inline-block;
+    cursor: pointer;
+    border: 0;
+    outline: 0;
+    -webkit-appearance: none;
+    appearance: none;
+    font-weight: 400;
+    box-sizing: border-box;
+    vertical-align: middle;
+    text-align: center;
+}
+.new-message-show{
+    padding: 5px 13px;
+    background-color: #FAA14B;
+    color: #fff;
+    border-radius: 50%;
+}
+.admin-reviews-minibox-content {
+    padding: 20px;
+    box-sizing: border-box;
+    min-height: 105px;
+}
+
+.adminAlert .icon-vendors-admin-alerts {
+    margin: 5px 20px 5px 0;
+}
+
+.adminReviewsSummary {
+    display: inline-block;
+    vertical-align: middle;
+    color: #8c8c8c;
+    margin: 0 15px 0 0;
+    font-size: 14px;
+    line-height: 1em;
+}
+
+.icon-vendors-admin-alerts-reviews:before {
+    background-position: 0 -550px;
+    height: 50px;
+    width: 50px;
+}
+
+.box {
+    border-radius: 3px;
+    border: 1px solid #d9d9d9;
+    margin-bottom: 15px;
+    background-color: #fff;
+}
+
+.adminTextarea {
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 120px;
+}
+
+.admin-reviews-minibox-footer {
+    border-top: 1px solid #d9d9d9;
+    padding: 15px 20px;
+    font-size: 13px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.admin-reviews-minibox-footer.disabled {
+    background-color: #f7f7f7;
+}
+
+.admin-reviews-minibox-tooltip h3{
+        font-size: 16px;
+    font-family: Istok Web;
+    font-weight: 400;
+    color: #706a68;
+}
+.bg-yellow{
+        background-color: #f39c12;
+}
+
+.bg-red{
+    background-color: #E63B3B;
+}
+
+.bg-green{
+    background-color: #00AEAF;
+}
+.avatar-review{
+    border-radius: 50%;
+    width: 50px;
+}
+
+
+.comment-item .comment-body {
+    position: relative;
+    padding: 12px;
+    border: 1px solid #e0e0e0;
+}
+
+.image-vendor{
+    padding: 10px;
+    background-color: #F8F8F8;
+    border-right: 3px solid #fff;
+    min-height: 300px;
+}
+
+.empLoggedDropdown__content {
+    padding: 20px 20px 5px;
+    text-align: center;
+}
+
+.empLoggedDropdown__item {
+    margin-bottom: 15px;
+}
+
+.empLoggedDropdown__item a {
+    color: #444;
+    font-size: 12px;
+    display: block;
+}
+
+.empLoggedDropdown__item a:hover {
+    color: #83021e;
+}
+
+.empLoggedDropdown__icon {
+    height: 30px;
+    display: inline-block;
+    position: relative;
+}
+.icon-vendor-admin-menu-account:before {
+    background-position: 0 -1048px;
+    height: 33px;
+    width: 33px;
+}
+
+
+/*.icon-tools-table-3::before {
+    background-position: -40px -1610px;
+    height: 40px;
+    width: 40px;
+}*/
+
+/*.icon-tools-table-2::before {
+    background-position: 0 -1570px;
+    height: 40px;
+    width: 40px;
+}*/
+
+/*.icon-tools-table-1::before {
+    background-position: -47px -1530px;
+    height: 40px;
+    width: 40px;
+}*/
+
+
+/*.icon-tools-table-4::before {
+    background-position: 0 -1650px;
+    height: 40px;
+    width: 40px;
+}*/
+
+/*.icon-tools-table-5::before {
+    background-position: -40px -1690px;
+    height: 40px;
+    width: 40px;
+}*/
+
+/*.icon-tools::before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    background-image: url(https://cdn1.weddingwire.ca/build/img/icons/locale/en_CA/icon-tools-se03c2c9331.png?v=nossl-akamai-sf-usa-20190702-01CA1067140-1_www_m_);
+    background-repeat: no-repeat;
+    margin-top: -1px;
+    -webkit-print-color-adjust: exact;
+}*/
+
+.tools-tables-gridItem-topSide {
+    height: 35px;
+    margin: 0 auto -5px;
+    float: left;
+}
+.tools-tables-gridItem-seat.seatX {
+    margin: 0 5px;
+    display: inline-block;
+}
+.tools-tables-gridItem-bottomSide {
+    height: 35px;
+    margin: -5px auto 0;
+    float: left;
+    direction: rtl;
+}
+
+
+.tools-tables-gridItem-lateralSide {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    float: left;
+    align-self: center;
+}
+.tools-tables-gridItem-lateralSide.leftSide {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column-reverse;
+    -ms-flex-direction: column-reverse;
+    flex-direction: column-reverse;
+    position: relative;
+    right: -5px;
+}
+.tools-tables-gridItem-lateralSide.rightSide {
+    position: relative;
+    left: -5px;
+}
+.tools-tables-gridItem-squareLabel {
+    width: 100%;
+    overflow: hidden;
+    text-align: center;
+}
+.tools-tables-gridItem-seat.seatY {
+    margin: 7px 0;
+    float: left;
+}
+.tools-tables-gridItem.flexItem {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+.ui-icon-triangle-1-n {
+    background-position: 0 -16px;
+}
+.ui-spinner .ui-icon-triangle-1-s {
+    background-position: -65px -16px;
+}
+/*
+*
+* 23/07/2019
+*
+*/
+.tools-tables-left-uncollapse {
+    background: #f4f4f4;
+    padding: 10px 20px;
+    cursor: pointer;
+    position: absolute;
+    left: 0;
+    top: 20px;
+    z-index: 99;
+    transition: .5s;
+    border: 1px solid #d9d9d9;
+    border-radius: 0 24px 24px 0;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.05);
+}
+.tools-tables-left-uncollapse.collapsed {
+    transform: translateX(0);
+}
+.modal-dialog {
+    width: 540px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 30px 0;
+    z-index: 1050;
+}
+.ui-corner-all, .ui-corner-bottom, .ui-corner-right, .ui-corner-br {
+    border-bottom-right-radius: 4px;
+}
+.ui-corner-all, .ui-corner-bottom, .ui-corner-left, .ui-corner-bl {
+    border-bottom-left-radius: 4px;
+}
+.ui-corner-all, .ui-corner-top, .ui-corner-right, .ui-corner-tr {
+    border-top-right-radius: 4px;
+}
+.ui-corner-all, .ui-corner-top, .ui-corner-left, .ui-corner-tl {
+    border-top-left-radius: 4px;
+}
+.ui-widget-content {
+    border: 1px solid #ddd;
+    background: #eee url(https://cdn1.weddingwire.ca/images/ui-bg_highlight-soft_100_eeeeee_1x100.png) 50% top repeat-x;
+    color: #333;
+}
+.ui-widget {
+    font-family: Trebuchet MS,Tahoma,Verdana,Arial,sans-serif;
+    font-size: 1.1em;
+}
+.ui-spinner {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    padding: 0;
+    vertical-align: middle;
+}
+.modalAddTable__content {
+    padding: 35px 30px 15px;
+}
+.modalAddTable__footer {
+    border-top: 1px solid #d9d9d9;
+    padding: 20px;
+    text-align: center;
+}
+.ui-spinner-down {
+    bottom: 0;
+}
+.ui-spinner-button {
+    width: 16px;
+    height: 50%;
+    font-size: .5em;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    position: absolute;
+    cursor: default;
+    display: block;
+    overflow: hidden;
+    right: 0;
+}
+.ui-spinner-up {
+    top: 0;
+}
+.spinner.ui-spinner-input {
+    padding: 12px !important;
+    height: 38px !important;
+}
+/* 23 july */
+.guest_popup_wrp .add_new_guest {
+    color: #83021e;
+    font-weight: 600;
+    font-size: 16px;
+}
+.guest_popup_wrp p {
+    margin-bottom: 10px;
+}    
+.guest_popup_wrp .p20 {
+    padding: 10px;
+}
+.guest_tools_wrp {
+    padding: 15px 55px 15px 25px;
+}
+.modalAddGuestTabs__itemIcon {
+    height: 18px;
+    width: 18px;
+    margin: 0 auto 8px;
+    display: block;
+}
+.modalAddGuestTabs__item {
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    border-right: 1px solid #d9d9d9;
+    padding: 13px;
+    text-align: center;
+}
+.modalAddGuestTabs {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    border-bottom: 1px solid #d9d9d9;
+}
+.modalAddGuestTabs__item.active {
+    box-shadow: inset 0 -2px 0 #83021e;
+}
+.modalAddGuestCompanion__icon svg {
+    fill: #8c8c8c;
+}
+.modalAddGuestCompanion__icon .svgIcon {
+    margin-top: 10px;
+    width: 44px;
+    height: 44px;
+    display: inline-block;
+}
+.modalAddGuestCompanion__icon {
+    width: 44px;
+    margin-right: 15px;
+}
+.guest_info_wrp {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    margin-bottom: 10px;
+}
+.add_guest_main_wrp {
+    width: 650px;
+}
+.input-group-line-label {
+    font-size: 13px;
+    line-height: 19px;
+}
+.modalAddGuestCompanion__icon {
+    width: 44px;
+    margin-right: 15px;
+}
+.input-group-line--noMargin {
+    margin-bottom: 0;
+}
+.modalAddGuestCompanion__name {
+    width: 30%;
+    margin-right: 15px;
+}
+.modalAddGuestCompanion__surname {
+    margin: 20px 15px 0 0;
+    width: 30%;
+}
+.input-group-line--noMargin {
+    margin-bottom: 0;
+}
+.modalAddGuestCompanion__age {
+    width: 20%;
+    margin-right: 15px;
+}
+.add_guest_nav a {
+    font-size: 15px;
+    line-height: 24px;
+    color: #000;
+}
+.guest_info_wrp.input-group-line input,.guest_info_wrp .input-group-line select,.guest_info_wrp .input-group-line textarea {
+    font-size: 15px;
+    line-height: 24px;
+}
+.modalAddGuest__link {
+    color: #83021e;
+    font-weight: 400;
+    margin: 15px 0 0;
+    display: inline-block;
+    font-size: 15px;
+    line-height: 24px;
+}
+.modalAddGuest__linkIcon {
+    vertical-align: sub;
+    line-height: 0;
+    width: 18px;
+    height: 18px;
+    margin-right: 5px;
+    display: inline-block;
+}
+.modalAddGuest__linkIcon svg {
+    fill: #83021e;
+}
+.modalAddGuest__label {
+    border-top: 1px solid #d9d9d9;
+    background-color: #f8f8f8;
+    font-size: 16px;
+    margin-left: -30px;
+    margin-right: -30px;
+    padding: 10px 30px;
+    text-transform: uppercase;
+    position: relative;
+    cursor: pointer;
+    color: #000;
+}
+.modalAddGuest__labelIcon.active {
+    -webkit-transform: translateY(-50%) rotateZ(180deg);
+    transform: translateY(-50%) rotateZ(180deg);
+}
+.modalAddGuest__labelIcon {
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    top: 50%;
+    right: 30px;
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    cursor: pointer;
+}
+.modalAddGuest__labelIcon svg {
+    fill: #2b2b2b;
+}
+.wedd_invite_wrp .input-group-line--noMargin span.ml5 {
+    font-size: 15px;
+    line-height: 24px;
+    font-weight: 400;
+}
+.wedd_invite_wrp {
+    margin: 20px 0;
+}
+#guest:hover {
+    background-color: #83021e;
+    color: #fff;
+}
+.modalAddGuest__footer {
+    text-align: center;
+}
+#guest {
+    font-size: 16px;
+    border-color: #83021e;
+}
+.guest_detail .input-group-line input, .guest_detail .input-group-line select, .guest_detail .input-group-line textarea, .guest_detail .input-group-line--noMargin span,.cont_info_wrp .input-group-line input, .cont_info_wrp .input-group-line select, .cont_info_wrp .input-group-line textarea, .cont_info_wrp .input-group-line--noMargin span{
+    font-size: 15px;
+    font-weight: 400;
+}
+.modalAddGuest__container {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    max-width: 450px;
+    min-height: 305px;
+    margin: 0 auto;
+    padding: 30px;
+    text-align: center;
+}
+.modalAddGuest__title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.modalAddGuest__description {
+    font-size: 16px;
+    margin-bottom: 35px;
+}
+.modalAddGuest__buttonSection {
+    width: 220px;
+    margin: 0 auto;
+}
+
+.btnOutline--primary, .btnOutline--red {
+    border-color: #83021e;
+    color: #83021e;
+}
+.modalAddGuest__button {
+    margin-bottom: 10px;
+    display: block;
+}
+#import_sheet_detail .modalAddGuest__buttonSection .modalAddGuest__button {
+    font-size: 15px;
+    line-height: 24px;
+}
+#import_sheet_detail .modalAddGuest__buttonSection a:hover {
+    background-color: #83021e;
+    color: #fff;
+}
+#import_sheet_detail .modalAddGuest__buttonSection label {
+    color: #fff;
+}
+#import_sheet_detail .modalAddGuest__buttonSection label:hover {
+    background-color: #169fa5;
+    border-color: #169fa5;
+    color: #fff;
+}
+.add_guest_nav a:hover {
+    color: #83021e;
+}
+.modalAddGuestCompanion__remove .svgIcon {
+    margin-top: 36px;
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+.modalAddGuestCompanion__remove {
+    text-align: right;
+}
+
+/* 24 July */
+.add_table_wrp {
+    font-size: 17px;
+    color: #000;
+    line-height: 28px;
+}
+.search_guest {
+    font-size: 15px;
+}
+.add_guest_head {
+    font-weight: 600;
+    font-size: 15px;
+}
+.wedd_head {
+    font-weight: 600;
+}
+.comn-error {
+    color: #e20909;
+    font-size: 13px;
+}
+.edit_guest_cont {
+    margin-top: 20px;
+}
+.input-group-line-label {
+    font-size: 15px;
+    line-height: 19px;
+    font-weight: 700 !important;
+}
+.edit_guest_btn {
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+}
+.edit_guest_btn:hover {
+    background-color: #169fa5;
+    border-color: #169fa5;
+    color: #fff;
+}
+/** Wedding Ideas **/
+.weddding_ideas_wrp .headings-intro h1 {
+    font-size: 32px;
+    line-height: 40px;
+    font-weight: 300;
+    font-family: 'Montserrat', sans-serif;
+}
+.weddding_ideas_wrp .articles-featured-small {
+    position: relative;
+}
+.weddding_ideas_wrp .headings-intro p {
+    font-size: 16px;
+    line-height: 24px;
+}
+.wedding_idea_search input {
+    font-size: 15px;
+    font-family: 'Montserrat', sans-serif;
+}
+.wedding_idea_search  .icon-search-white::before {
+    background-position: -18px -177px;
+}
+.recently_added_wrp .articles-listing-box-title:hover,.recently_added_wrp .widget-organizer-list li a:hover {
+    color: #83021e;
+}
+.weddding_ideas_wrp .articles-featured-big {
+    border: 1px solid #d9d9d9;
+    margin: 0 10px 20px;
+    height: 582px;
+    text-align: center;
+    position: relative;
+}
+.weddding_ideas_wrp .articles-featured-big figcaption {
+    padding: 15px;
+    height: 177px;
+}
+.weddding_ideas_wrp .articles-center-element {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    align-items: center;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+.articles-featured-big-image {
+    display: block;
+    width: 100%;
+}
+.weddding_ideas_wrp .articles-center-element-item {
+    width: 100%;
+}
+.weddding_ideas_wrp .articles-featured-big-category {
+    font-size: 13px;
+    line-height: 19px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #8c8c8c;
+    padding-bottom: 5px;
+    display: block;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.weddding_ideas_wrp .articles-featured-big-title {
+    font-size: 20px;
+    line-height: 26px;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    color: #222;
+    margin-bottom: 10px;
+    padding: 0 20px;
+    text-decoration: none;
+    display: block;
+}
+.weddding_ideas_wrp .articles-featured-big-content {
+    display: block;
+    color: #8c8c8c;
+    padding: 0 35px;
+    font-size: 16px;
+    line-height: 24px;
+}
+.weddding_ideas_wrp .articles-featured-big-title:hover {
+    color: #83021e;
+}
+.weddding_ideas_wrp .ribbon-rotate {
+    top: -20px;
+    left: 15px;
+    z-index: 1;
+    -webkit-transform: rotate(-1deg);
+    transform: rotate(-1deg);
+}
+.weddding_ideas_wrp .ribbon-article {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding: 7px 15px;
+    background-color: #fff;
+}
+.weddding_ideas_wrp .ribbon-red-light {
+    background-color: #83021e;
+}
+.weddding_ideas_wrp .ribbon-article span {
+    display: block;
+    color: #222;
+}
+.weddding_ideas_wrp .ribbon-red-light span {
+    text-transform: uppercase;
+    color: #fff;
+}
+.weddding_ideas_wrp .ribbon-rotate span {
+    -webkit-transform: rotate(1deg);
+    transform: rotate(1deg);
+}
+.weddding_ideas_wrp .articles-featured-big-frame {
+    max-height: 375px;
+    overflow: hidden;
+    position: relative;
+}
+.weddding_ideas_wrp  .ribbon:after{
+    display: none;
+}
+.weddingidea_cat .articles-categories-title {
+    font-size: 18px;
+    line-height: 23px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    color: #6c6c6c;
+    margin: 15px 0;
+}
+.weddingidea_cat .articles-categories-item {
+    padding: 10px;
+}
+.weddingidea_cat .articles-categories-item-icon {
+    display: inline-block;
+    margin: 0 auto 10px;
+    cursor: pointer;
+}
+.weddingidea_cat .articles-categories-item-text:hover {
+    color: #83021e;
+}
+.weddingidea_cat .articles-categories-item-text {
+    font-size: 13px;
+    line-height: 19px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block;
+    color: #6c6c6c;
+}
+.articles-categories.weddingidea_cat {
+    background: #f8f8f8;
+    text-align: center;
+}
+.weddingidea_cat .icon-articles-categories:before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    background-image: url('../images/icon-set-articles-categories-sfbc4562764.png');
+    background-repeat: no-repeat;
+    margin-top: -1px;
+    -webkit-print-color-adjust: exact;
+}
+.weddingidea_cat .icon-articles-categories-clock:before {
+    background-position: 0 -80px;
+    height: 40px;
+    width: 40px;
+}
+.weddingidea_cat .icon-articles-categories-ceremony:before {
+    background-position: 0 -40px;
+    height: 40px;
+    width: 40px;
+}
+.weddingidea_cat .icon-articles-categories-cake:before {
+    background-position: 0 0;
+    height: 40px;
+    width: 40px;
+}
+.weddingidea_cat .icon-articles-categories-diary:before {
+    background-position: 0 -160px;
+    height: 40px;
+    width: 40px;
+}
+.weddingidea_cat .icon-articles-categories-makeup:before {
+    background-position: 0 -280px;
+    height: 40px;
+    width: 40px;
+}
+.weddingidea_cat .icon-articles-categories-dress:before {
+    background-position: 0 -200px;
+    height: 40px;
+    width: 40px;
+}
+.weddingidea_cat .icon-articles-categories-plane:before {
+    background-position: 0 -360px;
+    height: 40px;
+    width: 40px;
+}
+.weddingidea_cat .icon-articles-categories-home:before {
+    background-position: 0 -240px;
+    height: 40px;
+    width: 40px;
+}
+.weddingidea_cat .icon-articles-categories-party:before {
+    background-position: 0 -320px;
+    height: 40px;
+    width: 40px;
+}
+.recently_added_wrp .headings-title-section {
+    font-size: 24px;
+    line-height: 30px;
+    font-weight: 600;
+    margin: 0 0 20px;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: capitalize;
+}
+.recently_added_wrp .articles-listing-items-area {
+    margin: 0 -15px 20px -20px;
+}
+.recently_added_wrp .articles-listing-box {
+    min-height: 280px;
+    text-align: left;
+    margin: 0 20px 35px;
+}
+.recently_added_wrp .articles-listing-box-frame {
+    overflow: hidden;
+    max-height: 260px;
+    position: relative;
+    border-radius: 2px;
+}
+.recently_added_wrp .articles-listing-box-title {
+    font-size: 20px;
+    line-height: 32.3606798px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    color: #222;
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+.recently_added_wrp .articles-listing-box-content {
+    color: #595959;
+}
+.recently_added_wrp .articles-listing-box-date {
+    font-size: 13px;
+    line-height: 21px;
+    color: #8c8c8c;
+    margin-top: 5px;
+}
+.recently_added_wrp .widget-most-read-box-number {
+    font-size: 42px;
+    line-height: 52px;
+    font-weight: 300;
+    color: #d9d9d9;
+    background: #f8f8f8;
+    padding: 10px 0;
+    text-align: center;
+    flex: 1;
+}
+.recently_added_wrp .articles-listing-box-category {
+    font-size: 14px;
+    line-height: 21px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #8c8c8c;
+    display: block;
+    margin: 15px 0 5px;
+}
+.recently_added_wrp .widget-title-section {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 15px;
+    line-height: 24px;
+    font-weight: 600;
+    text-align: center;
+    margin: 25px 0 15px;
+}
+.recently_added_wrp .widget-most-read .widget-most-read-box,.recently_added_wrp .widget-most-read-box-number,.recently_added_wrp .widget-most-read-box-title,.weddding_ideas_wrp .articles-featured-small-title,.recently_added_wrp .widget-organizer-header-text span {
+    font-family: 'Montserrat', sans-serif;
+}
+.recently_added_wrp .widget-organizer-list li,.recently_added_wrp .widget-most-read-box-title,.recently_added_wrp .widget-sections-division-link {
+    font-size: 15px;
+    line-height: 24px;
+}
+.recently_added_wrp .widget-organizer-header-title {
+    font-size: 20px;
+    line-height: 26px;
+    font-weight: 600;
+}
+.recently_added_wrp .widget-organizer-header-text span {
+    margin: 0;
+    display: block;
+    text-align: center;
+}
+.recently_added_wrp .widget-organizer-list li a {
+    color: #222;
+}
+.recently_added_wrp .widget-organizer-header-text {
+    color: #000;
+}
+.recently_added_wrp .widget-organizer-header-text span:last-of-type {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 5px;
+}
+.weddidea_pag_wrp .pagination__page {
+    display: inline-block;
+    vertical-align: middle;
+    border: 1px solid #d9d9d9;
+    color: #8c8c8c !important;
+    min-width: 32px;
+    margin: 0 0 5px;
+    padding: 4px 2px !important;
+    border-radius: 3px !important;
+    text-align: center;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 24px;
+}
+.weddidea_pag_wrp .pagination__page--active {
+    color: #fff !important;
+    background-color: #83021e;
+    border-color: #83021e;
+    font-weight: 600;
+}
+.weddidea_pag_wrp .pagination__page:hover {
+    border-color: #83021e;
+    color: #83021e;
+}
+.weddidea_pag_wrp .pagination__page--active:hover {
+    color: #fff;
+}
+.pagination.weddidea_pag_wrp {
+    margin: 20px 0;
+}
+.weddidea_pag_wrp .pagination__next, .pagination__prev {
+    width: auto;
+}
+.weddidea_pag_wrp .pagination__next {
+    margin-left: -3px;
+    padding: 4px 8px 4px 10px;
+}
+.pagination li:last-child a:after {
+    display: none;
+}
+.weddidea_pag_wrp .pagination__page:hover {
+    border-color: #83021e;
+    color: #83021e !important;
+}
+.weddidea_pag_wrp .pagination__page:hover .svgIcon svg {
+    fill: #83021e;
+}
+.pagination.weddidea_pag_wrp li:last-child a {
+    padding: 4px 12px !important;
+}
+.pagination.weddidea_pag_wrp .svgIcon {
+    width: 12px;
+    height: 12px;
+}
+.weddingidea_breadcrumb .breadcrumb {
+    background-color: #fff;
+}
+.breadcrumb h1.open, .breadcrumb>li.open {
+    border: 1px solid #d9d9d9;
+    border-bottom: 1px solid #fff;
+    background: #fff;
+}
+.weddingidea_breadcrumb .breadcrumb-container ul.breadcrumb li {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.weddingidea_breadcrumb .breadcrumb h1.open:before,.weddingidea_breadcrumb .breadcrumb>li.open:before {
+    content: "";
+    position: absolute;
+    background: #fff;
+    width: 100%;
+    height: 3px;
+    left: -1px;
+    bottom: -1px;
+    border-left: 1px solid #d9d9d9;
+    z-index: 100;
+    padding: 0;
+}
+.weddingidea_breadcrumb .breadcrumb .bread-menu.wedd_idea_dropdown_value li a,.weddingidea_breadcrumb .breadcrumb .bread-menu.wedd_idea_dropdown_value li strong {
+    padding: 6px 15px;
+}
+.weddingidea_breadcrumb .breadcrumb li:last-of-type a,.weddingidea_breadcrumb .breadcrumb li:last-of-type h1 {
+    padding-top: 18px;
+    padding-bottom: 18px;
+}
+.wedd_idea_vendor .footer-title {
+    font-size: 20px;
+    line-height: 26px;
+    font-weight: 600;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+.wedd_idea_vendor .footer-info-title,.wedd_idea_vendor .footer-list .footer-info-title {
+    font-size: 16px;
+}
+.wedd_idea_vendor .footer-list a {
+    font-size: 14px;
+    line-height: 26px;
+}
+.wedd_idea_vendor .footer-list-wrapper-border {
+    padding-top: 30px;
+    border-top: 1px solid #e7e7e7;
+}
+.breadcrumb-box.weddidea_cate_bread {
+    margin-top: 123px;
+}
+.animate-search {
+    margin-top: 8px;
+}
+
+.admin-reviews-minibox-action {
+    font-size: 16px;
+    line-height: 24px;
+    cursor: pointer;
+    position: relative;
+}
+.admin-reviews-minibox-action i {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+    padding-right: 5px;
+}
+.icon-eye-grey::before {
+    background-position: -102px -165px;
+    height: 17px;
+    width: 17px;
+}
+.admin-reviews-minibox-tag.success {
+    background: #48964d;
+    color: #fff;
+}
+.admin-reviews-minibox-tag.success::before {
+    border-color: transparent #48964d transparent transparent;
+}
+.admin-reviews-minibox-tag.addProfile {
+    background: #00ffc9;
+    color: #515151;
+}
+.admin-reviews-minibox-tag.addProfile::before {
+    border-color: transparent #00ffc9; transparent transparent;
+}
+.admin-reviews-minibox-tag {
+    display: inline-block;
+    vertical-align: middle;
+    font-weight: 600;
+    padding: 4px 7px;
+    margin-top: 5px;
+    border-radius: 2px;
+    line-height: 1em;
+    color: #444;
+    background: #fafafa;
+    position: relative;
+}
+.modal-open {
+    overflow: hidden;
+}
+.adminModalImport__title {
+    text-align: center;
+    border-bottom: 1px solid #d9d9d9;
+}
+.adminModalImport__title h3 {
+    font-size: 24px;
+    line-height: 30px;
+    font-weight: 600;
+    padding: 20px 0;
+}
+.modal h2, .modal h3 {
+    margin: 0;
+}
+.adminModalImport__tabs .selected {
+    border-bottom: 3px solid #83021e;
+}
+.adminModalImport__tabs span {
+    cursor: pointer;
+}
+.adminModalImport__search {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    background: #f8f8f8;
+    border-bottom: 1px solid #d9d9d9;
+    padding: 15px;
+    position: relative;
+}
+.adminModalImport__search .import-search-input-icon {
+    width: 20px;
+    height: 20px;
+}
+.adminModalImport__search input {
+    border: none;
+    background: 0 0;
+    box-shadow: none;
+    outline: 0;
+    width: 90%;
+    margin: 0;
+    padding-left: 10px;
+}
+.adminModalImport__tabs {
+    font-size: 16px;
+    line-height: 24px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    text-align: center;
+}
+.mt15 {
+    margin-top: 15px;
+}
+.rctChecklistTasks {
+    border-top: 1px solid #d9d9d9;
+    max-height: 450px;
+    overflow-y: scroll;
+}
+.importBookingRow {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0 20px;
+    border-bottom: 1px solid #d9d9d9;
+    animation: fade .8s;
+    cursor: pointer;
+}
+.rctChecklistTasks__checkBox {
+    display: inline-block;
+    vertical-align: text-top;
+}
+.rctChecklistTasks__checkBoxLink {
+    margin-top: 3px;
+    margin-right: 10px;
+    display: block;
+    cursor: pointer;
+}
+.modal a {
+    background-color: transparent;
+}
+.modal .adminReviewsItemFooter a.btnFlat {
+    background-color: #83021e;
+}
+.rctChecklistTasks__description {
+    display: inline-block;
+    vertical-align: top;
+    width: 50%;
+}
+.rctChecklistTasks__title {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 600;
+    margin-bottom: 0;
+    display: block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.modal p {
+    margin-top: 0;
+}
+.rctChecklistTasks__tag {
+    font-size: 14px;
+    line-height: 21px;
+    color: #6c6c6c;
+    margin-right: 10px;
+    display: inline-block;
+}
+.importBookingRow__date {
+    margin-left: auto;
+    width: 50%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: right;
+}
+.adminModalImport__actions {
+    border-top: 1px solid #d9d9d9;
+    text-align: center;
+}
+.p20 {
+    padding: 20px;
+}
+.mt5 {
+    margin-top: 5px;
+}
+.adminModalImport__actions .import-submit-button {
+    padding: 10px 30px;
+}
+.flex-center {
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+.adminModalImport__loader .loader {
+    position: static;
+}
+.loader.loader-small {
+    border-width: 3px;
+    height: 25px;
+    width: 25px;
+}
+.loader, .loader::after {
+    border-radius: 50%;
+}
+.loader {
+    animation: loader 1.1s infinite linear;
+    margin: 0;
+    font-size: 10px;
+    text-indent: -9999em;
+    border-style: solid;
+    border-color: rgba(25,181,188,.2) rgba(25,181,188,.2) rgba(25,181,188,.2) #83021e;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%,-50%,0);
+}
+.adminModalImport__noResults {
+    display: none;
+    text-align: center;
+    color: #8c8c8c;
+    font-size: 16px;
+}
+.pure-u-15-16 {
+    width: 93.75%;
+}
+.bubbler {
+    vertical-align: middle;
+}
+.bubbler__svgIcon {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    right: 11px;
+    top: 6px;
+}
+.bubbler__svgIcon svg {
+    fill: #8c8c8c;
+}
+.bubbler li {
+    display: inline-block;
+    vertical-align: middle;
+}
+.bubbler__bubble {
+    color: #222;
+    box-sizing: border-box;
+    border: 1px solid #e2e2e2;
+    border-radius: 18px;
+    padding: 4px 30px 4px 15px;
+    cursor: pointer;
+    margin: 3px 3px 3px 0;
+    position: relative;
+}
+.bubbler__bubble:hover {
+    border-color: #83021e;
+}
+.bubbler__bubble:hover .svgIcon svg {
+    fill: #83021e;
+}
+.review-collector-templates-user {
+    font-weight: 600;
+    font-size: 14px;
+}
+.review-collector-templates-user--user-email {
+    font-size: 12px;
+    font-weight: 400;
+    color: #8c8c8c;
+}
+
+
+.viewReview {
+    transition: opacity 5s linear;
+    margin: 0 auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1040;
+    display: none;
+    overflow: auto;
+    position: fixed;
+    outline: 0;
+}
+.adminReviewsItem__name {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 600;
+    margin-bottom: 3px;
+}
+.review__ratio {
+    font-weight: 600;
+}
+.adminReviewsItem__title {
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+.adminReviewsItem__description--scroll {
+    max-height: 200px;
+    overflow-y: auto;
+}
+.adminReviewsItem__scroll p {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+.adminReviewsItem__send {
+    font-size: 14px;
+    line-height: 21px;
+    margin-top: 5px;
+    color: #8c8c8c;
+    display: block;
+}
+a[role="button"] {
+    cursor: pointer;
+}
+
+.adminReviewsItemFooter__links {
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: 5px;
+    margin-right: 20px;
+}
+.adminReviewsItemFooter__social:hover {
+    color: #83021e;
+}
+.adminReviewsItemFooter__social {
+    position: relative;
+}
+.adminReviewsItemFooter__links .icon {
+    top: -1px;
+    position: relative;
+}
+.icon-opacity {
+    opacity: .5;
+}
+.icon-share::before {
+    background-position: 0 -343px;
+    height: 18px;
+    width: 18px;
+}
+.icon-ban::before {
+    background-position: -48px -216px;
+    height: 18px;
+    width: 18px;
+}
+.icon-left::before {
+    margin-right: 5px;
+}
+.modal__header {
+    background: #f8f8f8;
+    padding: 20px 35px 20px 20px;
+}
+.modal__header.flex {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+.modal-dialog .close {
+    -webkit-appearance: none;
+    transition: all .3s;
+    opacity: .5;
+    color: #8c8c8c;
+    font-size: 36px;
+    line-height: 1;
+    font-weight: 300;
+    float: right;
+    border: 0;
+    background-color: transparent;
+    outline: 0;
+}
+.modal__body {
+    padding: 20px;
+}
+.modal__content .border-top {
+    border-top: 1px solid #d9d9d9;
+}
+.modal__footer {
+    padding: 20px;
+}
+.modal__content {
+    background-color: #FFF; 
+}
+.modal-dialog .close:hover {
+    opacity: 1;
+}
+.close__icon {
+    fill: none;
+    stroke: #777;
+}
+.modal-dialog .close {
+    position: absolute;
+    right: 15px;
+    top: 30px;
+    z-index: 999999;
+}
+.modalReviewUpload {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    border: 2px dashed #d9d9d9;
+    align-items: center;
+    -webkit-align-items: center;
+    text-align: center;
+    padding: 20px;
+    height: 150px;
+    margin-bottom: 15px;
+    justify-content: center;
+    cursor: pointer;
+    width: 135% !important;
+}
+.modalReviewUpload {
+    text-align: center;
+    cursor: pointer;
+}
+.icon-vendor-camera::before {
+    background-position: -30px -922px;
+    height: 30px;
+    width: 30px;
+}
+.block {
+    display: block;
+}
+/*
+*
+*   Responsive design
+*
+*/
+
+
+ @media only screen and (max-width: 1199px) {
+    .wrapper, .container {
+        width: 96%;
+        margin: 0 auto;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .wrapper {
+        max-width: unset;
+        min-width: unset;
+    }
+    .discussion-posts .avatar-thumb {
+        width: 100%;
+    }
+    .carousel-control .fa-angle-right{
+        right: 20px;
+    }
+     .carousel-control .fa-angle-left  {
+        left: 20px;
+    }
+    .slider-cont {
+        width:90%;
+    }
+    .blog-all-cont {
+        padding-bottom: 30px;
+    }
+    .row {
+       margin: 0 auto;
+    }
+    .container-fluid>.navbar-collapse, .container-fluid>.navbar-header, .container>.navbar-collapse, .container>.navbar-header {
+        margin-left: 0;
+        margin-right: 0;
+    }
+   #slider-seciton {
+    
+    }
+    .icon-header-bag:before {
+        background-position: 0 -142px;
+    }
+    .navbar-right {
+        margin-right: 0;
+    }
+    
+}
+ @media only screen and (max-width: 1023px) {
+    #testimonial .weddy-cont {
+        width: 65%;
+        margin: 30px auto 0;
+    }
+    #companies {
+        text-align: center;
+    }
+    #companies .qc_comp {
+        width: 50%;
+        display: inline-block;
+        vertical-align: top;
+        text-align: left;
+    }
+    .community-single-wr {
+        margin-top: 18%;
+    }
+    #slider-seciton {
+   
+    }
+}
+
+ @media only screen and (max-width: 979px) {
+    .avatar-group-item {
+        width: 15%;
+    }
+    .avatar-group.avatar-group-small {
+        width: 26%;
+    }
+    .community-responsive-wrcls .pure-u-3-4, .community-responsive-wrcls .pure-u-6-8 {
+        width: 55%;
+    }
+    .discussion-grid-overlay .icon-com {
+        display: none;
+    }
+    .discussion-grid-more-info-btn {
+        font-size: 12px;
+        padding: 4px 3px;
+    }
+    .com-home-hero-header-text p {
+        display: none;
+    }
+    .slider-cont .form-field.field-button .btn {
+        padding: 20px 13%;
+    }
+    #testimonial .weddy-cont {
+        width: 80%;
+    }
+    .carousel-control .fa-angle-left {
+        left: 10px;
+    }
+    .carousel-control .fa-angle-right{
+        right: 10px;
+    }
+    .users-active li{
+        width: 30%;
+    }
+    .community-single-wr {
+        margin-top: 23%;
+    }
+    #slider-seciton {
+    
+    }
+        .menu-top-wrapper {
+            width: 100%;
+            margin: 0 auto;
+            max-width: unset;
+            min-width: unset;
+            display: block;
+            padding: 10px 0;
+        }
+        .login-right, .login-left {
+        text-align: center;
+        width: 100%;
+        margin: 0 auto;
+    }
+}
+
+ @media only screen and (max-width: 767px) {
+
+    .avatar-group-item {
+        width: 15%;
+    }
+    .avatar-group.avatar-group-small {
+        width: 26%;
+    }
+    .homepageslidersection > .pure-u-3-10, .homepageslidersection > .pure-u-4-10 {
+        width: 100%;
+    }
+    .app-slider-position {
+        margin: 10px 0;
+    }
+    .discussion-posts .app-community-profile-layer .avatar-thumb {
+        width: 30%;
+    }
+    .slider-cont {
+        top: 50%;
+    }
+    .slider-cont .form-field {
+        width: 233px;
+    }
+    .slider-cont .form-control {
+        padding: 5px 12px;
+    }
+    .slider-cont .form-field.field-button .btn {
+        padding: 15px;
+    }
+    #companies .qc_comp {
+        width: 65%;
+    }
+   /* .community-responsive-wrcls .pure-g > .pure-u-3-4, .community-responsive-wrcls .pure-g > .pure-u-1-4 {
+        width: 100%;
+    }*/
+    #slider-seciton {
+        padding: 0;
+    }
+    #weddy-services .weddy-cont {
+        margin-bottom: 40px;
+    }
+    .community-responsive-wrcls .pure-u-s {
+        margin-right: 0;
+    }
+    .community-responsive-wrcls > div > div{
+        width: 80% !important;
+        margin: 0 auto;
+        float: none;
+    }
+    .app-community-box-groups ul li  {
+        width: 50%;
+        margin: 0  auto;
+        float: none;
+    }
+    .community-single-wr > div > div > div {
+        width: 90% !important;
+        margin: 0 auto;
+    }
+    .community-single-wr .pure-u-s {
+        margin-right: 0;
+    }
+    .community-single-wr {
+        margin-top: 15%;
+    }
+    .community-single-wr .pure-u-3-4 ul li {
+        width: 45%;
+        margin: 10px auto;
+    }
+    #slider-seciton {
+     
+    }
+    .sidebar.narrow,.sidebar.wide {
+        width: 100%;
+        margin: 0 auto;
+        padding: 0;
+    }
+
+    .login-left img {
+        width: 100%;
+    }
+    .dashboard-mid-wrap .dash-vendors .pure-u-1-5 {
+        width: 48%;
+        margin: 0 auto;
+        float: none;
+    }
+    .upcoming-task-wrap > div > div {
+        width: 100%;
+        margin: 0 auto;
+    }
+    .upcoming-task-wrap .mr40 {
+        margin-right: 0;
+    }
+
+
+}
+ @media only screen and (max-width: 649px) {
+    #companies .qc_comp {
+        width: 90%;
+    }
+    .slider-cont {
+        width: 85%;
+    }
+    #testimonial .weddy-cont {
+        width: 70%;
+    }
+    .common-header h2 {
+        font-size: 24px;
+    }
+    .modal-dialog {
+        width: 80%;
+    }
+    .community-responsive-wrcls > div > div,.community-single-wr  .pure-u-1-2{
+        width: 90% !important;
+    }
+    .app-community-box-groups ul li  {
+        width: 70%;
+    }
+    .com-hero-bg-title {
+        font-size: 20px;
+        line-height: 25px;
+        padding-top: 30px;
+        padding-bottom: 20px;
+    }
+    .community-single-wr {
+        margin-top: 18%;
+    }
+    .com-hero-bg {
+        padding: 0 15px;
+    }
+    #slider-seciton {
+    
+    }
+    .products-list .product-item .row .image-holder,.products-list .product-item .row .body-holder{
+        width: 100% !important;
+        margin: 0  auto;
+    }
+    .products-list .product-item .row .image-holder .image {
+        text-align: center;
+    }
+    .discuss-post-comments li > div {
+        width: 100%;
+        margin: 0 auto;
+        float: none;
+    }
+    .testimonial-list .image img {
+        width: 100%;
+    }
+    .section-padding {
+        padding: 51px 0;
+    }
+    .dashboard-mid-wrap {
+        margin-top: 631px;
+    }
+    #uploadContainer > div {
+        width: 100%;
+        margin: 0 auto;
+    }
+    .dashboard-wrap .pure-u-1-8 {
+        width: 25%;
+    }
+
+}
+ @media only screen and (max-width: 479px) {
+    #companies .qc_comp {
+        width: 98%;
+    }
+    .slider-cont .form-control {
+        padding: 0;
+    }
+    .slider-cont .form-field.field-button .btn {
+        padding: 10px;
+        font-size: 12px;
+    }
+    .carousel-control .fa-angle-left {
+        left: 5px;
+    }
+    .carousel-control .fa-angle-right {
+        right: 5px;
+    }
+    .common-header h2 {
+        font-size: 22px;
+        line-height: 30px;
+    }
+    .footer-cont p {
+        font-size: 14px;
+    }
+    .slider-cont .form-field {
+        width: 100%;
+    }
+    .qc_home-search {
+        display: inline-block !important; 
+    }
+    #testimonial .weddy-cont {
+        width: 95%;
+    }
+    .community-responsive-wrcls > div > div, .app-community-box-groups ul li,.community-single-wr > div > div > div {
+        width: 95% !important;
+    }
+    .community-single-wr {
+        margin-top: 22%;
+    }
+    .community-single-wr .pure-u-3-4 ul li {
+        width: 70%;
+    }
+    .inner-slider .slider-cont p {
+        font-size: 14px;
+        padding-bottom: 5px;
+        line-height: 16px;
+    }
+    .slider-cont .form-field {
+        margin-bottom: 5px;
+    }
+    .bootstrap-select > .dropdown-toggle {
+        padding: 4px 20px;
+    }
+    .inner-slider .slider-cont h3 {
+        font-size: 16px;
+    }
+    #slider-seciton {
+        margin-top: 25%;
+    }
+    .menu-top-wrapper {
+        padding-bottom: 20px !important;
+    }
+    .login-right .login-content {
+        padding: 40px 5px;
+    }
+    .products-list .product-item .row .image-holder .image img {
+        /*width: 70% !important;*/
+        margin: 0 auto;
+    }
+    .facebook-login img {
+        width: 100%;
+    }
+    .dashboard-wrap {
+        margin-top: 56px;
+    }
+    .dashboard-mid-wrap .dash-vendors .pure-u-1-5 {
+        width: 85%;
+    }
+    .dashboard-mid-wrap {
+        margin-top: 545px;
+    }
+    .dash-title {
+        font-size: 18px;
+    }
+
+}
+ @media only screen and (max-width: 374px) {
+    .common-header h2 {
+        font-size: 20px;
+        line-height: 28px;
+    }
+    .community-single-wr {
+        margin-top: 25%;
+    }
+    .community-single-wr .pure-u-3-4 ul li {
+        width: 80%;
+    }
+    #slider-seciton {
+        /*margin-top: 35%;*/
+        margin-top: 0;
+    }
+}
+@media (max-width: 575px){
+    #slider-seciton {
+        margin-top: 0 !important;
+    }
+    .input_top {
+        display: inline-block;
+        width: 100%;
+        padding-top: 2px;
+        margin: 0;
+    }
+    .adminAccessLogin {
+        width: 100%;
+        padding: 25px 7px;
+    }
+    p.vendor-login-info {
+        text-align: justify;
+    }
+}
