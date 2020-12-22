@@ -28316,7 +28316,7 @@ div.dtk-focus-alt table.dataTable tbody th.focus {
 
 /* image varient start */
 .aut-bg-img {
-    background-image: url("../images/auth/img-auth-big.jpg");
+    background-image: url("../../images/frontend/bgimage1.jpg");
     background-size: contain;
     background-position: right;
 }

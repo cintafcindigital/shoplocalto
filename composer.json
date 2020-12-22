@@ -14,7 +14,8 @@
         "laravel/tinker": "^1.0",
         "maatwebsite/excel": "^2.1",
         "pusher/pusher-php-server": "~3.0",
-        "shawnsandy/img-fly": "^0.1.21"
+        "shawnsandy/img-fly": "^0.1.21",
+        "tymon/jwt-auth": "^1.0"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",

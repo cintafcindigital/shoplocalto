@@ -68,10 +68,10 @@
                             <img src="{{asset('banners')}}/{{$bannersedit->image}}" style="width: 100px;height: 100px">
                             @endif
                                     <!-- <input id="file" type="file" name="image" value="{{ old('image') }}" autofocus> -->
-                                    @include('includes.image-crop-4',['name' => 'image','width' => 800,'height' => 500])
+                                    @include('includes.image-crop-4',['name' => 'image','width' => 900,'height' => 600])
                                 </div>
                                 <!-- <p>(Recommonded dimension : 1024 x 614)</p> -->
-                                <p>(Recommonded dimension : 800 x 500)</p>
+                                <p>(Recommonded dimension : 900 x 600)</p>
                                 @if($errors->has('image'))
                                     <span class="help-block"><strong>{{ $errors->first('image') }}</strong></span>
                                 @endif

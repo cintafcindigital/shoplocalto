@@ -99,7 +99,9 @@
 							<li><a href="{{url('admin/manage-menus')}}">Manage Menus</a></li>
 						</ul>
 					</li>
-					
+					<li class="nav-item">
+						<a href="{{url('admin/events')}}" class="nav-link "><span class="pcoded-micon"><i class="fas fa-calendar "></i></span><span class="pcoded-mtext">Events</span></a>
+					</li>
 					<li class="nav-item pcoded-hasmenu">
 						<a href="javascript:;" class="nav-link "><span class="pcoded-micon"><i class="fas fa-user-circle"></i></span><span class="pcoded-mtext">Featured Profiles</span></a>
 						<ul class="pcoded-submenu">
@@ -109,7 +111,7 @@
 					</li>
 					
 					<li class="nav-item pcoded-hasmenu">
-						<a href="javascript:;" class="nav-link "><span class="pcoded-micon"><i class="fas fa-user-circle"></i></span><span class="pcoded-mtext">Enquiry</span></a>
+						<a href="javascript:;" class="nav-link "><span class="pcoded-micon"><i class="fas fa-question-circle"></i></span><span class="pcoded-mtext">Enquiry</span></a>
 						<ul class="pcoded-submenu">
 						    <li><a href="{{url('admin/signup-enquiry')}}">Signup Enquiry</a></li>
 						    <!-- <li><a href="{{url('admin/list-claim-enquiry')}}">Listing Claim Enquiry</a></li>
@@ -118,7 +120,7 @@
 						</ul>
 					</li>
 					<li class="nav-item pcoded-hasmenu">
-						<a href="javascript:;" class="nav-link "><span class="pcoded-micon"><i class="fas fa-user-circle"></i></span><span class="pcoded-mtext">Locations</span></a>
+						<a href="javascript:;" class="nav-link "><span class="pcoded-micon"><i class="fas fa-map-marker"></i></span><span class="pcoded-mtext">Locations</span></a>
 						<ul class="pcoded-submenu">
 						    <li><a href="{{url('admin/districts')}}">Districts</a></li>
 						    <!-- <li><a href="{{url('admin/list-claim-enquiry')}}">Listing Claim Enquiry</a></li>
@@ -703,7 +705,7 @@
 		<div class="m-header">
 			<a class="mobile-menu" id="mobile-collapse" href="javascript:;"><span></span></a>
 			<a href="{{url('admin')}}" class="b-brand">
-				<img src="{{url('public/images/logo_resized.png')}}" style="object-fit: contain;max-width: 82%;height: auto;width:auto;" alt="" class="logo">
+				<img src="{{url('public/images/frontend/shoplocalto.png')}}" style="object-fit: contain;max-width: 82%;height: auto;width:auto;" alt="" class="logo">
 			</a>
 			<a href="javascript:;" class="mob-toggler">
 				<i class="feather icon-more-vertical"></i>

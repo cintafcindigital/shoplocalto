@@ -9,11 +9,11 @@
     <meta name="author" content="Codedthemes" />
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ config('app.name', 'My Health Squad') }}</title>
+    <title>{{ config('app.name', 'ShopLocalTo') }}</title>
     <!-- Favicon icon -->
-    <link rel="shortcut icon" type="image/x-icon" href="{{url('public/images/mhs_favicon.png')}}">
-    <link rel="shortcut icon" type="image/png" href="{{url('public/images/mhs_favicon.png')}}">
-    <link rel="icon" type="image/png" href="{{url('public/images/mhs_favicon.png')}}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{url('public/images/frontend/shoplocalto.png')}}">
+    <link rel="shortcut icon" type="image/png" href="{{url('public/images/frontend/shoplocalto.png')}}">
+    <link rel="icon" type="image/png" href="{{url('public/images/frontend/shoplocalto.png')}}">
     <!-- vendor css -->
     <link rel="stylesheet" href="{{url('assets/css/style.css')}}">
     <script src="{{url('assets/js/vendor-all.min.js')}}"></script>
@@ -29,7 +29,7 @@
                     <div class="row justify-content-center">
                         <div class="col-md-9">
                             <div class="text-center">
-                                <img src="{{url('assets/images/pwd_icon.png')}}" alt="" class="img-fluid mb-5">
+                                <img src="{{asset('images/frontend/shoplocalto.png')}}" alt="" class="img-fluid mb-5">
                                 <h1 class="f-w-400">Hi there, please log in</h1>
                             </div>
                             @if(session()->has('msg'))
@@ -73,7 +73,7 @@
                     </div>
                 </div>
                 <div class="footer-cont text-center">
-                    <h6 class="mb-0 text-muted">&copy;2020 All Rights Reserved. My Health Squad</h6>
+                    <h6 class="mb-0 text-muted">&copy;2020 All Rights Reserved. ShopLocalTo</h6>
                 </div>
             </div>
         </div>

@@ -1688,12 +1688,11 @@ function get_city_town(vals,click) {
             success: function(response) {
 
               $("#region_list").prop('display','block');
-
                 $("#region_list").html(response);
 
-                if(click != undefined && click){
+                if(click != undefined){
 
-                  // alert(click)
+                   
 
                   $("#region_list").css('display','none');
 

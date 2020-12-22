@@ -29,6 +29,7 @@ if(env('APP_ENV') === 'production') {
 });
     // Route::get('/', 'PageController@home');
     Route::get('/', 'FrontendController@home');
+    Route::get('singleshop/{id}', 'FrontendController@singleshop');
     Route::get('locations/{id}','FrontendController@locationshops');
     /*Route::get('MB2020',function(){
         return view('mb2020');
@@ -844,6 +845,7 @@ if(env('APP_ENV') === 'production') {
 
         Route::get('subscribers','AdminSubscriberController@index');
         Route::get('site-settings','AdminSiteSettingsController@index');
+        Route::get('events','AdminEventController@index');
     });
 /*
 |--------------------------------------------------------------------------

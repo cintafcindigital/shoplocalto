@@ -24,7 +24,7 @@ class AdminMenuController extends Controller
     }
     public function index()
     {
-        $menus=Menu::with('children')->get();
+        $menus=Menu::with('children')->orderBy('display_order','ASC')->get();
         
         return view('admin/menu/list',compact('menus'));
     }

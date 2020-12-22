@@ -30,7 +30,7 @@ class AdminLocationController extends Controller
     }
     public function communities()
     {
-        $communities=Community::select('locations.id','locations.name','districts.name AS district','locations.image')->join('districts','districts.id','locations.district_id')->get();
+        $communities=Community::select('locations.id','locations.name','districts.name AS district','locations.image')->with('children')->join('districts','districts.id','locations.district_id')->get();
         return view('admin/locations/communities',compact('communities'));
     }
     public function add_community()
@@ -45,8 +45,8 @@ class AdminLocationController extends Controller
             'description' => 'required',
             
             'district'=>'required',
-            'latitude'=>'required',
-            'longitude'=>'required'
+            // 'latitude'=>'required',
+            // 'longitude'=>'required'
 
         ]);
        if($id)
@@ -90,9 +90,10 @@ class AdminLocationController extends Controller
              $locations->image=$image_name;
              
         }
-   
-     $locations->latitude=$request->latitude;
-     $locations->longitude=$request->longitude;
+   $m=$this->autocomplete_latlong($request);
+  
+     $locations->latitude=$m[0];
+     $locations->longitude=$m[1];
      try
      {
      $locations->save();
@@ -119,6 +120,36 @@ class AdminLocationController extends Controller
         $locations->delete();
         return redirect('admin/communities')->with('success','Community Deleted successfully');
 
+    }
+    public function autocomplete_latlong(Request $request)
+    {
+        $address = '';
+        $evCity = $request->name;
+        $evAddress = 'Toronto,Ontario';
+        if($evAddress != '' && $evCity != '') {
+            $address = $evAddress.', '.$evCity;
+        } elseif($evCity != '') {
+            $address = $evCity;
+        }
+        $address = urlencode($address);
+        $url = "https://maps.googleapis.com/maps/api/geocode/json?address=$address&sensor=false&key=".env('GMAP_API_KEY_NEW');
+        $resp_json = file_get_contents($url);
+        $resp = json_decode($resp_json, true);
+        if(count($resp['results']) > 0 && $resp['status'] == 'OK') {
+            $lat = isset($resp['results'][0]['geometry']['location']['lat']) ? $resp['results'][0]['geometry']['location']['lat'] : "";
+            $lng = isset($resp['results'][0]['geometry']['location']['lng']) ? $resp['results'][0]['geometry']['location']['lng'] : "";
+            $formatted_address = isset($resp['results'][0]['formatted_address']) ? $resp['results'][0]['formatted_address'] : "";
+            if($lat && $lng && $formatted_address) {
+                $data_arr = array();
+                array_push($data_arr,$lat,$lng,$formatted_address);
+                return $data_arr;
+            } else {
+                return false;
+            }
+        } else {
+            echo "<strong>ERROR: {$resp['status']}</strong>";
+            return false;
+        }
     }
     
 

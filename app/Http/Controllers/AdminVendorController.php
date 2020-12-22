@@ -180,11 +180,11 @@ class AdminVendorController extends Controller
             $moreInfoObject = new BusinessInfo;
           $categories = $request->input('category');
           $features=$request->input('feature1');
-        if(is_array($categories))
-        {
-            $checkProfession = Category::whereIn('id',$categories)->where('is_professionals',1)->count();
-            $vendorObj->is_professionals = $checkProfession > 0;
-        }
+        // if(is_array($categories))
+        // {
+        //     $checkProfession = Category::whereIn('id',$categories)->where('is_professionals',1)->count();
+        //     $vendorObj->is_professionals = $checkProfession > 0;
+        // }
         $vendorObj->username = $request->input('username');
         $vendorObj->contact_person = $request->input('contact_person');
         $vendorObj->password = Hash::make($request->input('password'));
@@ -245,14 +245,15 @@ class AdminVendorController extends Controller
                 $vendorObj->save();
             }
         }
-
+           $loc=Community::where('slug',$request->location)->first();
         if($data) {
             /*********************************************/
             $vendorCompanyObj->vendor_id = $vendorObj->vendor_id;
             $vendorCompanyObj->country = 'Canada';
             $vendorCompanyObj->province = 'Ontario';
             $vendorCompanyObj->district = $request->input('district');
-            $vendorCompanyObj->location = $request->input('location');
+            $vendorCompanyObj->location = $request->location;
+            $vendorCompanyObj->location_id=$loc->id;
             $vendorCompanyObj->postal_code = $request->input('postal_code');
             // $vendorCompanyObj->address = $request->input('address');
             $vendorCompanyObj->business_name = $request->input('business_name');
@@ -269,7 +270,10 @@ class AdminVendorController extends Controller
                 $vendorfeature->vendor_id = $vendorObj->vendor_id;
                 $vendorfeature->save();
             }
+
             $tags=$request->input('tag');
+             if($tags !='')
+             {
             $myArray = explode(',', $tags);
             
             foreach ($myArray as $key) {
@@ -278,29 +282,9 @@ class AdminVendorController extends Controller
             $tag->tagname=$key;
             $tag->save();
             }
+            }
             
-            // $moreInfoObject->vendor_id = $vendorObj->vendor_id;
-            // $moreInfoObject->free_parking = $request->input('free_parking');
-            // $moreInfoObject->paid_parking = $request->input('paid_parking');
-            // $moreInfoObject->indoor_parking = $request->input('indoor_parking');
-            // $moreInfoObject->no_parking = $request->input('no_parking');
-            // $moreInfoObject->wheel_chair = $request->input('wheelchair');
-            // $moreInfoObject->motor_vehicle = $request->input('motor_vehicle');
-            // $moreInfoObject->health_benefit = $request->input('health_benefit');
-            // $moreInfoObject->gov_insurance = $request->input('gov_insurance');
-            // $moreInfoObject->self_pay = $request->input('self_pay');
-            // $moreInfoObject->personal_cheque = $request->input('personal_cheque');
-            // $moreInfoObject->finance_available = $request->input('finance_available');
-            // if(!empty($request->input('special_message')))
-            //     $moreInfoObject->holiday_special = $request->input('special_message');
-            // // $moreInfoObject->language_spoke = $request->input('language_spoken');
-            // if(!empty($request->input('languages')))
-            //     $moreInfoObject->language = is_array($request->input('languages')) ? implode(',',$request->input('languages')) : $request->input('languages');
-            // if(!empty($request->input('sign_language')))
-            //     $moreInfoObject->sign_language = $request->input('sign_language');
-            // if(!empty($request->input('lgbtq')))
-            //     $moreInfoObject->lgbtq = $request->input('lgbtq');
-            // $moreInfoObject->save();
+            
             /*********************************************************/
             BusinessSocialMedia::where('vendor_id',$vendorObj->vendor_id)->delete();
             $socialMedia = SocialMedia::all();
@@ -821,12 +805,7 @@ class AdminVendorController extends Controller
         if($vendorId && isset($vendorData->id)) {
             $paymnt = new PaymentMethod();
             $paymnt->vendor_id       = $vendorId;
-            /*$paymnt->cardholder_name = $request->cardholder_name;
-            $paymnt->card_type       = $request->cardType;
-            $paymnt->card_number     = $request->card_number;
-            $paymnt->card_cvc        = $request->card_cvc;
-            $paymnt->exp_month       = $request->exp_month;
-            $paymnt->exp_year        = $request->exp_year;*/
+           
             $paymnt->pay_type        = $request->pay_type;
             $paymnt->save();
             if($paymnt->id) {
@@ -851,87 +830,7 @@ class AdminVendorController extends Controller
                     $subsAmount = round($subscription->amount / $numLoops, 2);
                 }
                 
-                ////// live site data key from https://www.dolcechocolateco.com......
-                // $store_id='monca93210';
-                // $api_token='3yAtOzMUMmOqZU0oFKIN';
-                ////// for testing of credit card put this request in url.....
-                // if(($request->has('cardtest') && $request->cardtest == 'yes') || $_SERVER['REMOTE_ADDR'] == '127.0.0.1') {
-                // }
-                /*$store_id = 'store5';
-                $api_token = 'yesguy';
-                $txnArray = array(
-                    'type'               => 'purchase',
-                    'order_id'           => time().rand(000,999),
-                    'cust_id'            => $request->cardholder_name,
-                    'amount'             => number_format($subsAmount,2,".",""),
-                    'pan'                => $request->card_number,
-                    'expdate'            => substr($request->exp_year,2,2).sprintf("%02d",$request->exp_month),
-                    'crypt_type'         => '7',
-                    'dynamic_descriptor' => 'My Health Squad'
-                );
-                $mpgTxn = new mpgTransaction($txnArray);
-                $mpgRequest = new mpgRequest($mpgTxn);
-                $mpgRequest->setProcCountryCode("CA");*/
-                // if(($request->has('cardtest') && $request->cardtest == 'yes') || $_SERVER['REMOTE_ADDR'] == '127.0.0.1') {
-                // }
-                /*$mpgRequest->setTestMode(true);
-                $mpgHttpPost  = new mpgHttpsPost($store_id,$api_token,$mpgRequest);
-                $mpgResponse = $mpgHttpPost->getMpgResponse();
-
-                $refNum = $mpgResponse->getReferenceNum();
-                $txnNum = $mpgResponse->getTxnNumber();
-                $resCod = $mpgResponse->getResponseCode();
-                if($mpgResponse->getResponseCode() < 50 && strlen($refNum) > 5 && strlen($txnNum) > 5 && is_numeric($resCod)) {
-                    $vendorInvoice = new VendorInvoice;
-                    $vendorInvoice->invoice_id          = 'PWDVND'.$vendorId;
-                    $vendorInvoice->vendor_id           = $vendorId;
-                    $vendorInvoice->subscription_id     = $request->subscription_id;
-                    $vendorInvoice->subscription_date   = date('Y-m-d');
-                    $vendorInvoice->due_date            = $due_date;
-                    $vendorInvoice->subscription_amount = $subscription->amount;
-                    $vendorInvoice->status              = '1';
-                    $vendorInvoice->save();
-                    if($vendorInvoice->id) {
-                        for($vbn = 0; $vbn < $numLoops; $vbn++) {
-                            $vendorBill = new VendorBill;
-                            $vendorBill->vendor_id       = $vendorId;
-                            $vendorBill->subscription_id = $request->subscription_id;
-                            $vendorBill->invoice_id      = $vendorInvoice->id;
-                            $vendorBill->invoice_number  = 'PWDVND'.$vendorId.(date('m',strtotime("+$vbn months",strtotime(date('Y-m-d')))));
-                            $vendorBill->due_date        = date('Y-m-d', strtotime("+$vbn months", strtotime(date('Y-m-d'))));
-                            $vendorBill->paid_amount     = round($subscription->amount / $numLoops, 2);
-                            $vendorBill->paid_date       = date('Y-m-d');
-                            $vendorBill->card_id         = $paymnt->id;
-                            if($request->pay_type == 'monthly') {
-                                if($vbn == 0) {
-                                    $vendorBill->status  = '1';
-                                } else {
-                                    $vendorBill->status  = '0';
-                                }
-                            } elseif($request->pay_type == 'full') {
-                                $vendorBill->status      = '1';
-                            }
-                            $vendorBill->save();
-                        }
-                    }
-                    $vendors = Vendor::find($vendorId);
-                    $vendors->status = 1;
-                    $vendors->pay_status = 1;
-                    $vendors->freelisting = 'No';
-                    $vendors->save();
-                    //// Payment Mail......
-                    Mail::to($vendors->email)->send(new PaymentSuccessMail($vendors,$vendorInvoice,$subsAmount,'approved','payment_success'));
-                    //// Mail to Admin......
-                    $subject = "Vendor Payment Details"; //cesario@indigitalgroup.ca
-                    Mail::to('citstestdev@gmail.com')->send(new VendorMailToAdmin($vendors,$subsAmount,$subject,'done'));
-                    Mail::to('cesario@perfectweddingday.ca')->send(new VendorMailToAdmin($vendors,$subsAmount,$subject,'done'));
-                    //// Verification Mail......
-                    $updLink = url('login').'?verification='.encrypt($vendors->username);
-                    Mail::to($vendors->email)->send(new PaymentSuccessMail($vendors,array(),'',$updLink,'payment_thankyou'));
-                    return 'Payment approved successfully and verification email sent to vendor. It is set to inactive vendor untill vendor verified it from email.';
-                } else {
-                    return $mpgResponse->getMessage();
-                }*/
+                
             } else {
                 return redirect()->back()->with('error','Payment not saved to database. So please try again later !!');
             }
@@ -1204,7 +1103,7 @@ class AdminVendorController extends Controller
                 $venObj->featured_image = $image_name;
             }
         }
-
+        $loc=Community::where('slug',$request->location)->first();
         $venCompObj->business_name = $request->business_name;
         $venCompObj->postal_code = $request->postal_code;
         $venCompObj->business_detail = $request->business_detail;
@@ -1212,6 +1111,7 @@ class AdminVendorController extends Controller
         $venCompObj->address = $request->address;
         $venCompObj->district = $request->district;
         $venCompObj->location = $request->location;
+        $venCompObj->location_id=$loc->id;
        
         $data = $venObj->save();
         $venCompObj->save();
@@ -1539,7 +1439,7 @@ class AdminVendorController extends Controller
         $locations = Community::where('district_id',$district)->where('name', 'LIKE', '%'.$vals.'%')->get();
         $htmls = '';
         foreach($locations as $reg) {
-            $htmls .= "<option class='region_list' value=".$reg->name.">";
+            $htmls .= "<option class='region_list' value=".$reg->slug.">";
         }
         echo $htmls;
     }

@@ -46,7 +46,9 @@
                                                 <th>{{$community->district}}</th>
                                                 <th>
                                                     <a class="text-primary" title="Edit" href="{{url('admin/edit-community')}}/{{$community->id}}"><i class="fa fa-edit"></i></a>&nbsp;&nbsp; 
-                                                    <a class="text-danger" title="Delete" href="{{url('admin/delete-community')}}/{{$community->id}}" onclick="javascript:return confirm('Do you want to delete this community ?');"><i class="fa fa-trash"></i></a></th>
+                                                    @if($community->children->count()==0)<a class="text-danger" title="Delete" href="{{url('admin/delete-community')}}/{{$community->id}}" onclick="javascript:return confirm('Do you want to delete this community ?');"><i class="fa fa-trash"></i></a>
+                                                    @endif
+                                                </th>
                                             </tr>
                                              @php $i++;@endphp
                                             @endforeach

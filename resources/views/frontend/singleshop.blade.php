@@ -5,15 +5,15 @@
                 <div class="content">
                     <section class="listing-hero-section hidden-section" data-scrollax-parent="true" id="sec1">
                         <div class="bg-parallax-wrap">
-                            <div class="bg par-elem "  data-bg="{{asset('images/frontend/bg/1.jpg')}}" data-scrollax="properties: { translateY: '30%' }"></div>
+                            <div class="bg par-elem "  data-bg="{{asset('vendors/VENDOR_'.$shop->vendor_id.'/'.$shop->featured_image)}}" data-scrollax="properties: { translateY: '30%' }"></div>
                             <div class="overlay"></div>
                         </div>
                         <div class="container">
                             <div class="list-single-header-item  fl-wrap">
                                 <div class="row">
                                     <div class="col-md-9">
-                                        <h1>Iconic Cafe in Manhattan <span class="verified-badge"><i class="fal fa-check"></i></span></h1>
-                                        <div class="geodir-category-location fl-wrap"><a href="#"><i class="fas fa-map-marker-alt"></i>  70 Bright St New York, USA</a> <a href="#"> <i class="fal fa-phone"></i>+38099231212</a> <a href="#"><i class="fal fa-envelope"></i> yourmail@domain.com</a></div>
+                                        <h1>{{$shop->business_name}} <span class="verified-badge"><i class="fal fa-check"></i></span></h1>
+                                        <div class="geodir-category-location fl-wrap"><a href="#"><i class="fas fa-map-marker-alt"></i>{{$shop->business_address}}</a> <a href="#"> <i class="fal fa-phone"></i>{{$shop->telephone}}</a> <a href="#"><i class="fal fa-envelope"></i> {{$shop->email}}</a></div>
                                     </div>
                                     <div class="col-md-3">
                                         
@@ -25,7 +25,7 @@
                                     <div class="listing-item-category  red-bg"><i class="fal fa-cheeseburger"></i></div>
                                     <span>Restaurants</span>
                                 </a>
-                                <div class="list-single-author"> <a href="author-single.html"><span class="author_avatar"> <img alt='' src='{{asset('images/frontend/avatar/1.jpg')}}'>  </span>By  Alisa Noory</a></div>
+                                <div class="list-single-author"> <a href="author-single.html"><span class="author_avatar"> <img alt='' src='{{asset('images/frontend/avatar/1.jpg')}}'>  </span>By  {{$shop->contact_person}}</a></div>
                                 <div class="geodir_status_date gsd_open"><i class="fal fa-lock-open"></i>Open Now</div>
                                 <div class="list-single-stats">
                                     
@@ -77,8 +77,7 @@
                                                 <h3>Description</h3>
                                             </div>
                                             <div class="list-single-main-item_content fl-wrap">
-                                                <p>Praesent eros turpis, commodo vel justo at, pulvinar mollis eros. Mauris aliquet eu quam id ornare. Morbi ac quam enim. Cras vitae nulla condimentum, semper dolor non, faucibus dolor. Vivamus adipiscing eros quis orci fringilla, sed pretium lectus viverra. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec nec velit non odio aliquam suscipit. Sed non neque faucibus, condimentum lectus at, accumsan enim.   </p>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque. Nulla finibus lobortis pulvinar. Donec a consectetur nulla. Nulla posuere sapien vitae lectus suscipit, et pulvinar nisi tincidunt. Aliquam erat volutpat. Curabitur convallis fringilla diam sed aliquam. Sed tempor iaculis massa faucibus feugiat. In fermentum facilisis massa, a consequat purus viverra.</p>
+                                                <p>{{$shop->business_detail}}</p>
                                                 
                                             </div>
                                         </div>
@@ -229,36 +228,11 @@
                                                             <p>" Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. "</p>
                                                             <div class="reviews-comments-item-footer fl-wrap">
                                                                 <div class="reviews-comments-item-date"><span><i class="far fa-calendar-check"></i>12 April 2018</span></div>
-                                                                <a href="#" class="rate-review"><i class="fal fa-thumbs-up"></i>  Helpful Review  <span>2</span> </a>
+                                                                
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <!--reviews-comments-item end--> 
-                                                    <!-- reviews-comments-item -->  
-                                                    <div class="reviews-comments-item">
-                                                        <div class="review-comments-avatar">
-                                                            <img src="{{asset('images/frontend/avatar/1.jpg')}}" alt=""> 
-                                                        </div>
-                                                        <div class="reviews-comments-item-text fl-wrap">
-                                                            <div class="reviews-comments-header fl-wrap">
-                                                                <h4><a href="#">Adam Koncy</a></h4>
-                                                                <div class="review-score-user">
-                                                                    <span class="review-score-user_item">5.0</span>
-                                                                    <div class="listing-rating card-popup-rainingvis" data-starrating2="5"></div>
-                                                                </div>
-                                                            </div>
-                                                            <p>" Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc posuere convallis purus non cursus. Cras metus neque, gravida sodales massa ut. "</p>
-                                                            <div class="review-images ">
-                                                                <a href="{{asset('images/frontend/all/1.jpg')}}" class="image-popup"><img src="{{asset('images/frontend/all/1.jpg')}}" alt=""></a>
-                                                                <a href="{{asset('images/frontend/all/1.jpg')}}" class="image-popup"><img src="{{asset('images/frontend/all/1.jpg')}}" alt=""></a>
-                                                            </div>
-                                                            <div class="reviews-comments-item-footer fl-wrap">
-                                                                <div class="reviews-comments-item-date"><span><i class="far fa-calendar-check"></i>03 December 2017</span></div>
-                                                                <a href="#" class="rate-review"><i class="fal fa-thumbs-up"></i>  Helpful Review  <span>4</span> </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!--reviews-comments-item end-->                                                                  
+                                                                                                                      
                                                 </div>
                                             </div>
                                         </div>
@@ -326,10 +300,7 @@
                                                             </div>
                                                             <textarea cols="40" rows="3" placeholder="Your Review:"></textarea>
                                                             <div class="clearfix"></div>
-                                                            <div class="photoUpload">
-                                                                <span><i class="fal fa-image"></i> <strong>Add Photos</strong></span>
-                                                                <input type="file" class="upload" multiple>
-                                                            </div>
+                                                            
                                                             <div class="clearfix"></div>
                                                             <button class="btn  color2-bg  float-btn">Submit Review <i class="fal fa-paper-plane"></i></button>
                                                         </div>
@@ -375,10 +346,10 @@
                                             <div class="box-widget-content bwc-nopad">
                                                 <div class="list-author-widget-contacts list-item-widget-contacts bwc-padside">
                                                     <ul class="no-list-style">
-                                                        <li><span><i class="fal fa-map-marker"></i> Adress :</span> <a href="#">USA 27TH Brooklyn NY</a></li>
-                                                        <li><span><i class="fal fa-phone"></i> Phone :</span> <a href="#">+7(123)987654</a></li>
-                                                        <li><span><i class="fal fa-envelope"></i> Mail :</span> <a href="#">AlisaNoory@domain.com</a></li>
-                                                        <li><span><i class="fal fa-browser"></i> Website :</span> <a href="#">themeforest.net</a></li>
+                                                        <li><span><i class="fal fa-map-marker"></i> Adress :</span> <a href="#">{{$shop->business_address}}</a></li>
+                                                        <li><span><i class="fal fa-phone"></i> Phone :</span> <a href="#">{{$shop->telephone}}</a></li>
+                                                        <li><span><i class="fal fa-envelope"></i> Mail :</span> <a href="#">{{$shop->email}}</a></li>
+                                                        <li><span><i class="fal fa-browser"></i> Website :</span> <a href="#">{{$shop->website}}</a></li>
                                                     </ul>
                                                 </div>
                                                 <div class="list-widget-social bottom-bcw-box  fl-wrap">
@@ -404,12 +375,14 @@
                                         <div class="box-widget opening-hours fl-wrap">
                                             <div class="box-widget-content">
                                                 <div class="list-single-tags tags-stylwrap">
-                                                    <a href="#">Hotel</a>
-                                                    <a href="#">Hostel</a>
+                                                    @foreach($tags as $tag)
+                                                    <a href="#">{{$tag->tagname}}</a>
+                                                    @endforeach
+                                                    <!-- <a href="#">Hostel</a>
                                                     <a href="#">Room</a>
                                                     <a href="#">Spa</a>
                                                     <a href="#">Restaurant</a>
-                                                    <a href="#">Parking</a>                                                                               
+                                                    <a href="#">Parking</a>     -->                                                                           
                                                 </div>
                                             </div>
                                         </div>

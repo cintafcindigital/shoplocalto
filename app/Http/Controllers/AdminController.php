@@ -873,11 +873,7 @@ class AdminController extends Controller
         if($request->input('parent_id') != ''){
             $catObj->parent_id = $request->input('parent_id');
         }
-        // if($request->input('is_parent') != ''){
-        //     $catObj->is_parent = $request->input('is_parent');
-        //     $checkParentIsProfession = Category::where('id',$catObj->is_parent)->first();
-        //     $catObj->is_professionals = $checkParentIsProfession->is_professionals;
-        // }
+        
         $catObj->status = 1;
         $catObj->search_keywords = $request->input('search_keywords');
         $catObj->save();
@@ -996,19 +992,19 @@ class AdminController extends Controller
         $catSlug = Category::where('slug',$catObj->slug)->count();
         if($catSlug > 0)
             $catObj->slug = $catObj->slug.'-'.$catSlug;
-        $catObj->is_professionals = !empty($request->input('is_professionals'))?$request->input('is_professionals'):0;
+        $catObj->show_home = !empty($request->input('is_professionals'))?$request->input('is_professionals'):0;
         if($request->input('parent_id') != '') {
             $catObj->parent_id = $request->input('parent_id');
         } else {
             $catObj->parent_id = null;
         }
-        if($request->input('is_parent') != '') {
-            $catObj->is_parent = $request->input('is_parent');
-            $checkParentIsProfession = Category::where('id',$catObj->is_parent)->first();
-            $catObj->is_professionals = $checkParentIsProfession->is_professionals;
-        } else {
-            $catObj->is_parent = '0';
-        }
+        // if($request->input('is_parent') != '') {
+        //     $catObj->is_parent = $request->input('is_parent');
+        //     $checkParentIsProfession = Category::where('id',$catObj->is_parent)->first();
+        //     $catObj->is_professionals = $checkParentIsProfession->is_professionals;
+        // } else {
+        //     $catObj->is_parent = '0';
+        // }
         $data = $catObj->save();
         if($data) {
             $oldId = $request->input('old_id');

@@ -24,7 +24,7 @@
                                                             <div class="geodir_status_date gsd_open"><i class="fal fa-lock-open"></i>Open Now</div>
                                                             <div class="geodir-category-opt">
                                                                 <div class="geodir-category-opt_title">
-                                                                    <h4><a href="{{url('singleshop')}}">{{$vendor->business_name}}</a></h4>
+                                                                    <h4><a href="{{url('singleshop/'.$vendor->vendor_id)}}">{{$vendor->business_name}}</a></h4>
                                                                     <div class="geodir-category-location"><a href="#"><i class="fas fa-map-marker-alt"></i>  {{$vendor->business_address}}</a></div>
                                                                 </div>
                                                                 <!-- <div class="listing-rating-count-wrap">

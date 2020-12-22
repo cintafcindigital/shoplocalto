@@ -1,7 +1,7 @@
 <section class="hero-section"   data-scrollax-parent="true">
                         <div class="bg-tabs-wrap">
                             <div class="bg-parallax-wrap" data-scrollax="properties: { translateY: '200px' }">
-                                <div class="bg bg_tabs"  data-bg="images/frontend/bgimage1.jpg"></div>
+                                <div class="bg bg_tabs"  data-bg="{{asset('banners/'.$banners->image)}}"></div>
                                 <div class="overlay op7"></div>
                             </div>
                         </div>
@@ -9,13 +9,14 @@
                             <div class="intro-item fl-wrap">
                                 <span class="section-separator"></span>
                                 <div class="bubbles">
-                                    <h1>Explore Best Places In City</h1>
+                                    <h1>{{$banners->title}}</h1>
                                 </div>
-                                <h3>Connecting Merchants With Shoppers</h3>
+                                <h3>{{$banners->description}}</h3>
                             </div>
                             <!-- main-search-input-tabs-->
                             <div class="main-search-input-tabs  tabs-act fl-wrap">
                                 <ul class="tabs-menu change_bg no-list-style">
+                                    
                                     <li class="current"><a href="#tab-inpt1" data-bgtab="images/frontend/bgimage1.jpg"> Places</a></li>
                                     <li><a href="#tab-inpt2" data-bgtab="images/frontend/bgimage1.jpg"> Events</a></li>
                                     <li><a href="#tab-inpt3" data-bgtab="images/frontend/bgimage1.jpg"> Restaurants</a></li>
@@ -40,11 +41,14 @@
                                                     <div class="main-search-input-item">
                                                         <select data-placeholder="All Categories"  class="chosen-select" >
                                                             <option>All Categories</option>
-                                                            <option>Shops</option>
+                                                            @foreach($allcat as $allc)
+                                                            <option value="{{$allc->id}}">{{$allc->title}}</option>
+                                                            @endforeach
+                                                            <!-- <option>Shops</option>
                                                             <option>Hotels</option>
                                                             <option>Restaurants</option>
                                                             <option>Fitness</option>
-                                                            <option>Events</option>
+                                                            <option>Events</option> -->
                                                         </select>
                                                     </div>
                                                     <button class="main-search-button color2-bg" onclick="window.location.href='listing.html'">Search <i class="far fa-search"></i></button>
@@ -64,15 +68,18 @@
                                                     </div>
                                                     <div class="main-search-input-item">
                                                         <select data-placeholder="Loaction" class="chosen-select on-radius" >
-                                                            <option>All Cities</option>
-                                                            <option>New York</option>
+                                                            <option>All Locations</option>
+                                                            @foreach($alllocations as $location)
+                                                            <option value="{{$location->id}}">{{$location->name}}</option>
+                                                            @endforeach
+                                                            <!-- <option>New York</option>
                                                             <option>London</option>
                                                             <option>Paris</option>
                                                             <option>Kiev</option>
                                                             <option>Moscow</option>
                                                             <option>Dubai</option>
                                                             <option>Rome</option>
-                                                            <option>Beijing</option>
+                                                            <option>Beijing</option> -->
                                                         </select>
                                                     </div>
                                                     <div class="main-search-input-item clact date-container">
@@ -141,11 +148,14 @@
                             <div class="hero-categories fl-wrap">
                                 <h4 class="hero-categories_title">Just looking around ? Use quick search by category :</h4>
                                 <ul class="no-list-style">
-                                    <li><a href="listing.html"><i class="far fa-cheeseburger"></i><span>Restaurants</span></a></li>
+                                    @foreach($categories as $category)
+                                    <li><a href="listing.html"><span> {{$category->title}}</span></a></li>
+                                    @endforeach
+                                    <!-- <li><a href="listing.html"><i class="far fa-cheeseburger"></i><span>Restaurants</span></a></li>
                                     <li><a href="listing.html"><i class="far fa-bed"></i><span>Hotels</span></a></li>
                                     <li><a href="listing.html"><i class="far fa-shopping-bag"></i><span>Shops</span></a></li>
                                     <li><a href="listing.html"><i class="far fa-dumbbell"></i><span>Fitness</span></a></li>
-                                    <li><a href="listing.html"><i class="far fa-cocktail"></i><span>Events</span></a></li>
+                                    <li><a href="listing.html"><i class="far fa-cocktail"></i><span>Events</span></a></li> -->
                                 </ul>
                             </div>
                         </div>
